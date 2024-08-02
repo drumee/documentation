@@ -32,7 +32,7 @@ Open your provider's DNS manager.
 * ns1.your.domain <---> IP4,IP6
 * ns2.your.domain <---> IP4,IP6
 - Change to name servers fo your domain to ns1.your.domain and ns2.your.domain
-Wait the change to take effects. Meanwhile, download the Docker Compose Template File from (https://github.com/drumee/documentation/install/docker/docker-compose-template.yml)
+Wait the change to take effects. Meanwhile, download the Docker Compose Template File from [here](https://github.com/drumee/documentation/blob/main/install/docker/docker-compose-template.yml)
 
 ```console
 cp docker-compose-template.yml docker-compose.yml
