@@ -10,3 +10,6 @@ Advanced installation: TBD
 
 ## Installation for plugins development purpose
 ## Installation for contribution purpose
+
+# Wiki pages
+### [Service Router](https://github.com/drumee/service-router/wiki)
