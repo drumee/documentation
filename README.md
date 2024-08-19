@@ -1,7 +1,7 @@
 # Get started
 ## Installation for usage purpose
 ### Install using Docker Compose File
-[Visite Quick Installation Repository](https://github.com/drumee/docker-compose.git)
+[Visite Quick Installation Repository](https://github.com/drumee/install-docker.git)
 
 Advanced installation: TBD
 
