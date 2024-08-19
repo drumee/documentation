@@ -1,12 +1,12 @@
 # Get started
-## Installation for usage purpose
+## Install Drumee Collaborative Standalone Server
 ### Install using Docker Compose File
-[Visite Quick Installation Repository](https://github.com/drumee/install-docker.git)
+[Visite Quick Installation Repository](https://github.com/drumee/docker-hosted.git)
 
 Advanced installation: TBD
 
-### Install using Debian Packages 
-[Visite Debian Installation Repository](https://github.com/drumee/install-debian.git)
+### Installation on a bare metal server running Debian distribution
+[Visite Debian Installation Repository](https://github.com/drumee/debian-hosted.git)
 
 ## Installation for plugins development purpose
 ## Installation for contribution purpose
