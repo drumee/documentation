@@ -5,7 +5,7 @@ There are several ways to install Drumee Collaborative System. Here are two simp
 ## Install Drumee Collaborative Standalone Server
 
 ### Install Drumee on your local host for development purpose
-[Visite Drumee Developer Corner](https://github.com/drumee/synology-hosted)
+[Visite Drumee Developer Corner](https://github.com/drumee/documentation/wiki/Developer-Corner)
 
 ### Install on Synology Docker Manager
 [Visite Synology Hosted Installation](https://github.com/drumee/synology-hosted)
