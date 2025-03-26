@@ -14,7 +14,7 @@ services:
 
     environment:
       # This setup is intend for development. 
-      #- "PRIVATE_IP4=192.168.0.195"  # set your own, optional for production
+      - "PRIVATE_IP4=127.0.0.1"  # You can use a private IP address so that your server ia reachable through your LAN
       - DRUMEE_DOMAIN_NAME=local.drumee  # Default domain name, don't use public domain
       - DRUMEE_REPO=evaluation.drumee.io # DO NOT CHANGE
       - INFRA_COMPONENTS=all # DO NOT CHANGE
