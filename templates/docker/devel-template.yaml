@@ -1,7 +1,7 @@
 services:
   drumee:
     image: drumee/devel:latest
-    container_name: devel 
+    container_name: drumee-devel 
     ports:   
       - "53:53/udp"
       - "53:53/tcp"
