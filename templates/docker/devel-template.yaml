@@ -10,8 +10,6 @@ services:
       - "10000:10000/udp"
       - "5222:5222/tcp"
 
-    user: "${UID}:${GID}"
-
     environment:
       # Set your own private IP address. 
       #- "PRIVATE_IP4=192.168.0.200" 
@@ -33,10 +31,11 @@ services:
       - /var/lib/drumee/data/storage/db:/srv/db
       - /var/lib/drumee/data/storage/data:/data
       - /var/lib/drumee/data/storage:/exchangearea
-      - "${HOME}/.config/drumee-dev:/mnt/devel"
-      # Uncomment below line if you want to access yourhome from within Docker
+      - "/home/my-dir/.config/drumee-dev:/mnt/devel"
+      # Uncomment and chane below line if you want to access your home f
+      # rom within Docker
       # For security reason, it is recommended to mount in read only
-      #- "${HOME}:${HOME}:ro"
+      #- "/home/my-dir:/home/my-dir:ro"
     entrypoint: /var/lib/drumee/init.d/loader  # Comment this
     #entrypoint: /bin/bash                     # and uncomment this for debug or trouble shootiing
     stdin_open: true 
