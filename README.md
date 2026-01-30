@@ -1,20 +1,41 @@
-# Get started
-There are several ways to install Drumee Collaborative System. Here are two simplest ways. More advanced approaches will come later.
+# Website
 
+This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
-## Install Drumee Collaborative Standalone Server
+## Installation
 
-### Install Drumee on your local host for development purpose
-[Visite Drumee Developer Corner](https://github.com/drumee/documentation/wiki/Developer-Corner)
+```bash
+yarn
+```
 
-### Install on Synology Docker Manager
-[Visite Synology Hosted Installation](https://github.com/drumee/synology-hosted)
+## Local Development
 
-### Install using Docker Compose File
-[Visite Quick Installation Repository](https://github.com/drumee/docker-hosted.git)
+```bash
+yarn start
+```
 
-### Installation on a bare metal server running Debian distribution
-[Visite Debian Installation Repository](https://github.com/drumee/debian-hosted.git)
+This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
-# Wiki pages
-### [Service Router](https://github.com/drumee/service-router/wiki)
+## Build
+
+```bash
+yarn build
+```
+
+This command generates static content into the `build` directory and can be served using any static contents hosting service.
+
+## Deployment
+
+Using SSH:
+
+```bash
+USE_SSH=true yarn deploy
+```
+
+Not using SSH:
+
+```bash
+GIT_USER=<Your GitHub username> yarn deploy
+```
+
+If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
