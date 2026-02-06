@@ -137,12 +137,6 @@ const config: Config = {
     mermaid: {
       theme: {light: 'neutral', dark: 'dark'},
     },
-    algolia: {
-      appId: 'YOUR_APP_ID',
-      apiKey: 'YOUR_API_KEY',
-      indexName: 'drumee',
-      contextualSearch: true,
-    },
   } satisfies Preset.ThemeConfig,
 
   markdown: {

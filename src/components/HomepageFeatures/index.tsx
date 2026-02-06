@@ -11,31 +11,31 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Fully standlone, sovereign and scalable infrastructure',
+    Svg: require("@site/static/img/logo.svg").default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Drumee OS is a meta operating system designed to run web applications like
+        MacOs to rune programs.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Ready to use Docker Image, deployable in minutes',
+    Svg: require('@site/static/img/docker.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        A few lines of settings and you Drumee OS is ready to use. Also available on 
+        bare metal with Debian.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'Add tailored plugins to meet your own requirements',
+    Svg: require('@site/static/img/plugin.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
+        No need to develop boilerplates like Identities managements or
         be extended while reusing the same header and footer.
       </>
     ),
