@@ -7,6 +7,7 @@
  * Usage:
  *   node generate-api-docs.js <module>          # Generate single module
  *   node generate-api-docs.js --all             # Generate all modules
+ *   node generate-api-docs.js --acl <dir>       # Specify ACL directory
  *   node generate-api-docs.js --output <dir>    # Specify output directory
  */
 
@@ -476,6 +477,7 @@ function main() {
     console.error('Usage:');
     console.error('  node generate-api-docs.js <module>');
     console.error('  node generate-api-docs.js --all');
+    console.error('  node generate-api-docs.js --acl <dir>');
     console.error('  node generate-api-docs.js --output <dir>');
     process.exit(1);
   }
@@ -486,8 +488,11 @@ function main() {
   for (let i = 0; i < args.length; i++) {
     if (args[i] === '--all') {
       generateAll = true;
+    } else if (args[i] === '--acl' && i + 1 < args.length) {
+      CONFIG.aclDir = path.resolve(args[i + 1]);
+      i++;
     } else if (args[i] === '--output' && i + 1 < args.length) {
-      CONFIG.outputDir = args[i + 1];
+      CONFIG.outputDir = path.resolve(args[i + 1]);
       i++;
     } else if (!args[i].startsWith('--')) {
       modules.push(args[i]);
@@ -505,6 +510,7 @@ function main() {
   }
   
   console.log(`\nDrumee API Documentation Generator\n`);
+  console.log(`ACL directory:    ${CONFIG.aclDir}`);
   console.log(`Output directory: ${CONFIG.outputDir}`);
   console.log(`Modules to process: ${modules.length}\n`);
   
