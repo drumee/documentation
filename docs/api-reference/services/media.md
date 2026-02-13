@@ -36,28 +36,28 @@ https://hostname/-/svc/media.upload
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `pid` | string | **Yes** | - | Parent folder ID where file will be uploaded |
-| `file` | file | **Yes** | - | File to upload (multipart/form-data) |
-| `filename` | string (max: 126) | **Yes** | - | Original filename |
-| `filesize` | number | No | - | File size in bytes (for quota checking) |
-| `md5Hash` | string | No | - | MD5 hash for deduplication |
-| `metadata` | object | No | - | Additional file metadata |
-| `replace` | number (0, 1) | No | `0` | Replace existing file (1) or create new (0) |
-| `ownpath` | string | No | - | Absolute path within hub (will create parent folders if not exist) |
+| `pid` | `string` | **Yes** | - | Parent folder ID where file will be uploaded |
+| `file` | `file` | **Yes** | - | File to upload (multipart/form-data) |
+| `filename` | `string (max: 126)` | **Yes** | - | Original filename |
+| `filesize` | `number` | No | - | File size in bytes (for quota checking) |
+| `md5Hash` | `string` | No | - | MD5 hash for deduplication |
+| `metadata` | `object` | No | - | Additional file metadata |
+| `replace` | `number (0, 1)` | No | `0` | Replace existing file (1) or create new (0) |
+| `ownpath` | `string` | No | - | Absolute path within hub (will create parent folders if not exist) |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | string | New file node ID |
-| `nid` | string | New file node ID (alias) |
-| `filename` | string | Uploaded filename |
-| `filesize` | number | File size in bytes |
-| `category` | string | File category: image, video, audio, document, web, archive, etc |
-| `extension` | string | File extension |
-| `mimetype` | string | MIME type |
-| `mtime` | number | Modification timestamp |
-| `ctime` | number | Creation timestamp |
+| `id` | `string` | New file node ID |
+| `nid` | `string` | New file node ID (alias) |
+| `filename` | `string` | Uploaded filename |
+| `filesize` | `number` | File size in bytes |
+| `category` | `string` | File category: image, video, audio, document, web, archive, etc |
+| `extension` | `string` | File extension |
+| `mimetype` | `string` | MIME type |
+| `mtime` | `number` | Modification timestamp |
+| `ctime` | `number` | Creation timestamp |
 
 ### Possible Errors
 
@@ -89,13 +89,13 @@ https://hostname/-/svc/media.download
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `nid` | string | **Yes** | - | Node ID of file to download |
+| `nid` | `string` | **Yes** | - | Node ID of file to download |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `file` | binary | File content stream |
+| `file` | `binary` | File content stream |
 
 ### Possible Errors
 
@@ -124,19 +124,19 @@ https://hostname/-/svc/media.make_dir
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `dirname` | string (max: 255) | No | - | Directory name (use with pid). Slashes will be replaced with dashes |
-| `pid` | string | No | - | Parent folder ID (required if using dirname) |
-| `ownpath` | string | No | - | Absolute path within hub (alternative to dirname+pid). Will create parent folders if they don't exist |
-| `metadata` | object | No | - | Additional folder metadata |
+| `dirname` | `string (max: 255)` | No | - | Directory name (use with pid). Slashes will be replaced with dashes |
+| `pid` | `string` | No | - | Parent folder ID (required if using dirname) |
+| `ownpath` | `string` | No | - | Absolute path within hub (alternative to dirname+pid). Will create parent folders if they don't exist |
+| `metadata` | `object` | No | - | Additional folder metadata |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `nid` | string | New folder node ID |
-| `filename` | string | Folder name |
-| `category` | string | folder |
-| `parent_id` | string | Parent folder ID |
+| `nid` | `string` | New folder node ID |
+| `filename` | `string` | Folder name |
+| `category` | `string` | folder |
+| `parent_id` | `string` | Parent folder ID |
 
 ### Possible Errors
 
@@ -167,19 +167,19 @@ https://hostname/-/svc/media.trash
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `nid` | string | **Yes** | - | Node ID to trash (can be array for batch operation) |
+| `nid` | `string` | **Yes** | - | Node ID to trash (can be array for batch operation) |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `items` | array<object> | Array of trashed items |
-| `items[].id` | string | Node ID |
-| `items[].nid` | string | Node ID (alias) |
-| `items[].status` | string | New status: deleted |
-| `items[].delete_time` | number | Timestamp when trashed |
-| `args` | object | Changelog info |
-| `args.changelog` | object | Change tracking data |
+| `items` | `array<object>` | Array of trashed items |
+| `items[].id` | `string` | Node ID |
+| `items[].nid` | `string` | Node ID (alias) |
+| `items[].status` | `string` | New status: deleted |
+| `items[].delete_time` | `number` | Timestamp when trashed |
+| `args` | `object` | Changelog info |
+| `args.changelog` | `object` | Change tracking data |
 
 ### Possible Errors
 
@@ -211,16 +211,16 @@ https://hostname/-/svc/media.move_all
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `nodes` | array<string> | **Yes** | - | Array of source node IDs to move |
-| `dest_id` | string | **Yes** | - | Destination folder ID |
-| `recipient_id` | string | No | - | Target hub ID (if moving cross-hub) |
+| `nodes` | `array<string>` | **Yes** | - | Array of source node IDs to move |
+| `dest_id` | `string` | **Yes** | - | Destination folder ID |
+| `recipient_id` | `string` | No | - | Target hub ID (if moving cross-hub) |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `items` | array | Array of moved items with new locations |
-| `denied_lst` | array | List of items that could not be moved due to permission |
+| `items` | `array` | Array of moved items with new locations |
+| `denied_lst` | `array` | List of items that could not be moved due to permission |
 
 ### Possible Errors
 
@@ -252,15 +252,15 @@ https://hostname/-/svc/media.copy_all
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `nodes` | array<string> | **Yes** | - | Array of source node IDs to copy |
-| `dest_id` | string | **Yes** | - | Destination folder ID |
-| `recipient_id` | string | No | - | Target hub ID (if copying cross-hub) |
+| `nodes` | `array<string>` | **Yes** | - | Array of source node IDs to copy |
+| `dest_id` | `string` | **Yes** | - | Destination folder ID |
+| `recipient_id` | `string` | No | - | Target hub ID (if copying cross-hub) |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `items` | array | Array of copied items with new IDs |
+| `items` | `array` | Array of copied items with new IDs |
 
 ### Possible Errors
 
@@ -290,21 +290,21 @@ https://hostname/-/svc/media.rename
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `nid` | string | **Yes** | - | Node ID to rename |
-| `filename` | string (min: 1, max: 255) | **Yes** | - | New filename |
+| `nid` | `string` | **Yes** | - | Node ID to rename |
+| `filename` | `string (min: 1, max: 255)` | **Yes** | - | New filename |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | string | Node ID |
-| `nid` | string | Node ID (alias) |
-| `filename` | string | Updated filename |
-| `args` | object | Changelog and sync info |
-| `args.dest` | object | New node state |
-| `args.src` | object | Old node state |
-| `args.tag` | string | Transaction tag for sync |
-| `args.changelog` | object | Change tracking data |
+| `id` | `string` | Node ID |
+| `nid` | `string` | Node ID (alias) |
+| `filename` | `string` | Updated filename |
+| `args` | `object` | Changelog and sync info |
+| `args.dest` | `object` | New node state |
+| `args.src` | `object` | Old node state |
+| `args.tag` | `string` | Transaction tag for sync |
+| `args.changelog` | `object` | Change tracking data |
 
 ### Possible Errors
 
@@ -334,19 +334,19 @@ https://hostname/-/svc/media.show_bin
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `page` | number (min: 1) | No | `1` | Page number for pagination |
+| `page` | `number (min: 1)` | No | `1` | Page number for pagination |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `items` | array<object> | Array of trashed items |
-| `items[].id` | string | Node ID |
-| `items[].filename` | string | Filename |
-| `items[].status` | string | deleted |
-| `items[].delete_time` | number | Timestamp when trashed |
-| `items[].category` | string | File category |
-| `items[].filesize` | number | File size in bytes |
+| `items` | `array<object>` | Array of trashed items |
+| `items[].id` | `string` | Node ID |
+| `items[].filename` | `string` | Filename |
+| `items[].status` | `string` | deleted |
+| `items[].delete_time` | `number` | Timestamp when trashed |
+| `items[].category` | `string` | File category |
+| `items[].filesize` | `number` | File size in bytes |
 
 ---
 
@@ -368,11 +368,11 @@ https://hostname/-/svc/media.empty_bin
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `status` | string | queued (if using background job) or immediate completion |
-| `job_id` | string | Job ID if queued |
-| `message` | string | Status message |
-| `deleted_count` | number | Number of items permanently deleted (if immediate) |
-| `freed_space` | number | Storage space freed in bytes (if immediate) |
+| `status` | `string` | queued (if using background job) or immediate completion |
+| `job_id` | `string` | Job ID if queued |
+| `message` | `string` | Status message |
+| `deleted_count` | `number` | Number of items permanently deleted (if immediate) |
+| `freed_space` | `number` | Storage space freed in bytes (if immediate) |
 
 ### Possible Errors
 
@@ -400,13 +400,13 @@ https://hostname/-/svc/media.purge
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `list` | array<string> | No | `[]` | Array of node IDs to purge. Empty array = purge all |
+| `list` | `array<string>` | No | `[]` | Array of node IDs to purge. Empty array = purge all |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `items` | array | Array of purged node IDs |
+| `items` | `array` | Array of purged node IDs |
 
 ---
 
@@ -429,16 +429,16 @@ https://hostname/-/svc/media.restore_into
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `nodes` | array<string> | **Yes** | - | Array of node IDs to restore |
-| `dest_id` | string | **Yes** | - | Destination folder ID where items will be restored |
-| `recipient_id` | string | No | - | Target hub ID (if restoring to different hub) |
+| `nodes` | `array<string>` | **Yes** | - | Array of node IDs to restore |
+| `dest_id` | `string` | **Yes** | - | Destination folder ID where items will be restored |
+| `recipient_id` | `string` | No | - | Target hub ID (if restoring to different hub) |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `items` | array | Array of restored items with new locations |
-| `denied` | array | Items that could not be restored due to permission |
+| `items` | `array` | Array of restored items with new locations |
+| `denied` | `array` | Items that could not be restored due to permission |
 
 ---
 
@@ -460,16 +460,16 @@ https://hostname/-/svc/media.show_node_by
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `nid` | string | **Yes** | - | Parent folder ID to browse |
-| `page` | number (min: 1) | No | `1` | Page number |
-| `sort` | string (rank, date, size, sort) | No | `"rank"` | Sort field |
-| `order` | string (asc, desc) | No | `"asc"` | Sort direction |
+| `nid` | `string` | **Yes** | - | Parent folder ID to browse |
+| `page` | `number (min: 1)` | No | `1` | Page number |
+| `sort` | `string (rank, date, size, sort)` | No | `"rank"` | Sort field |
+| `order` | `string (asc, desc)` | No | `"asc"` | Sort direction |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `items` | array | Array of media items |
+| `items` | `array` | Array of media items |
 
 ---
 
@@ -491,16 +491,16 @@ https://hostname/-/svc/media.show_node_by_with_size
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `nid` | string | **Yes** | - | Parent folder ID to browse |
-| `page` | number (min: 1) | No | `1` | Page number |
-| `sort` | string (rank, date, size, sort) | No | `"rank"` | Sort field |
-| `order` | string (asc, desc) | No | `"asc"` | Sort direction |
+| `nid` | `string` | **Yes** | - | Parent folder ID to browse |
+| `page` | `number (min: 1)` | No | `1` | Page number |
+| `sort` | `string (rank, date, size, sort)` | No | `"rank"` | Sort field |
+| `order` | `string (asc, desc)` | No | `"asc"` | Sort direction |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `items` | array | Array of items with calculated folder sizes |
+| `items` | `array` | Array of items with calculated folder sizes |
 
 ---
 
@@ -522,20 +522,20 @@ https://hostname/-/svc/media.manifest
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `nid` | string | **Yes** | - | Root folder ID for manifest |
+| `nid` | `string` | **Yes** | - | Root folder ID for manifest |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `nodes` | array<object> | Hierarchical list of all files and folders |
-| `nodes[].id` | string | Node ID |
-| `nodes[].nid` | string | Node ID (alias) |
-| `nodes[].filename` | string | Filename |
-| `nodes[].file_path` | string | Full path from root |
-| `nodes[].category` | string | file or folder |
-| `nodes[].filesize` | number | File size in bytes |
-| `total_size` | number | Total size of all items in bytes |
+| `nodes` | `array<object>` | Hierarchical list of all files and folders |
+| `nodes[].id` | `string` | Node ID |
+| `nodes[].nid` | `string` | Node ID (alias) |
+| `nodes[].filename` | `string` | Filename |
+| `nodes[].file_path` | `string` | Full path from root |
+| `nodes[].category` | `string` | file or folder |
+| `nodes[].filesize` | `number` | File size in bytes |
+| `total_size` | `number` | Total size of all items in bytes |
 
 ---
 
@@ -557,21 +557,21 @@ https://hostname/-/svc/media.search_all
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `string` | string | No | - | Search query string (alternative to 'query') |
-| `query` | string | No | - | Search query string (alternative to 'string') |
-| `page` | number (min: 1) | No | `1` | Page number for pagination |
-| `limit` | number (min: 1, max: 100) | No | `20` | Results per page |
+| `string` | `string` | No | - | Search query string (alternative to 'query') |
+| `query` | `string` | No | - | Search query string (alternative to 'string') |
+| `page` | `number (min: 1)` | No | `1` | Page number for pagination |
+| `limit` | `number (min: 1, max: 100)` | No | `20` | Results per page |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `items` | array<object> | Search results ranked by relevance: exact filename match (highest) → filename contains → extension match → content match (lowest) |
-| `items[].nid` | string | Node ID |
-| `items[].filename` | string | Filename |
-| `items[].category` | string | File category |
-| `items[].relevance` | number | Relevance score |
-| `items[].match_type` | string | filename, extension, or content |
+| `items` | `array<object>` | Search results ranked by relevance: exact filename match (highest) → filename contains → extension match → content match (lowest) |
+| `items[].nid` | `string` | Node ID |
+| `items[].filename` | `string` | Filename |
+| `items[].category` | `string` | File category |
+| `items[].relevance` | `number` | Relevance score |
+| `items[].match_type` | `string` | filename, extension, or content |
 
 ---
 
@@ -593,18 +593,18 @@ https://hostname/-/svc/media.get_by_type
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `type` | string (image, video, audio, document, web, archive) | No | `"image"` | File category to filter |
-| `page` | number (min: 1) | No | `1` | Page number |
-| `order` | string (asc, desc) | No | - | Sort direction |
-| `sort` | string (rank, date, size, sort) | No | - | Sort field |
-| `pid` | string | No | - | Parent folder ID (omit to search all) |
-| `showAll` | boolean | No | - | Search all folders (ignores pid) |
+| `type` | `string (image, video, audio, document, web, archive)` | No | `"image"` | File category to filter |
+| `page` | `number (min: 1)` | No | `1` | Page number |
+| `order` | `string (asc, desc)` | No | - | Sort direction |
+| `sort` | `string (rank, date, size, sort)` | No | - | Sort field |
+| `pid` | `string` | No | - | Parent folder ID (omit to search all) |
+| `showAll` | `boolean` | No | - | Search all folders (ignores pid) |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `items` | array | Array of files matching type |
+| `items` | `array` | Array of files matching type |
 
 ---
 
@@ -626,19 +626,19 @@ https://hostname/-/svc/media.info
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `nid` | string | **Yes** | - | Node ID to get info |
+| `nid` | `string` | **Yes** | - | Node ID to get info |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `stats` | object | Basic file statistics (id, filename, category, filesize, etc) |
-| `pages` | number | Number of pages (for documents) |
-| `pdf` | string | Path to PDF version (for documents) |
-| `duration` | string | Duration (for audio/video) |
-| `Image` | object | Image metadata (geometry, format, etc) |
-| `total_size` | number | Total size including subfolders (for folders) |
-| `status` | string | working (PDF conversion in progress), ready, or na |
+| `stats` | `object` | Basic file statistics (id, filename, category, filesize, etc) |
+| `pages` | `number` | Number of pages (for documents) |
+| `pdf` | `string` | Path to PDF version (for documents) |
+| `duration` | `string` | Duration (for audio/video) |
+| `Image` | `object` | Image metadata (geometry, format, etc) |
+| `total_size` | `number` | Total size including subfolders (for folders) |
+| `status` | `string` | working (PDF conversion in progress), ready, or na |
 
 ### Possible Errors
 
@@ -666,20 +666,20 @@ https://hostname/-/svc/media.get_node_attr
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `nid` | string | **Yes** | - | Node ID |
-| `relpath` | string | No | - | Relative path from nid (e.g., 'subfolder/file.txt') |
+| `nid` | `string` | **Yes** | - | Node ID |
+| `relpath` | `string` | No | - | Relative path from nid (e.g., 'subfolder/file.txt') |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `nid` | string | Node ID |
-| `filename` | string | Filename |
-| `category` | string | File category |
-| `filesize` | number | File size in bytes |
-| `mtime` | number | Modification timestamp |
-| `permission` | number | User's permission level |
-| `ownpath` | string | Absolute path within hub |
+| `nid` | `string` | Node ID |
+| `filename` | `string` | Filename |
+| `category` | `string` | File category |
+| `filesize` | `number` | File size in bytes |
+| `mtime` | `number` | Modification timestamp |
+| `permission` | `number` | User's permission level |
+| `ownpath` | `string` | Absolute path within hub |
 
 ---
 
@@ -701,13 +701,13 @@ https://hostname/-/svc/media.zip
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `id` | string | **Yes** | - | Zip ID from download service |
+| `id` | `string` | **Yes** | - | Zip ID from download service |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `file` | binary | Zip file stream |
+| `file` | `binary` | Zip file stream |
 
 ### Possible Errors
 
@@ -735,15 +735,15 @@ https://hostname/-/svc/media.zip_size
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `nid` | string | **Yes** | - | Node ID to calculate size |
-| `socket_id` | string | **Yes** | - | WebSocket ID for checking connection |
+| `nid` | `string` | **Yes** | - | Node ID to calculate size |
+| `socket_id` | `string` | **Yes** | - | WebSocket ID for checking connection |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `size` | number | Total size in bytes |
-| `socket_bound` | boolean | Whether socket is connected (false = user online) |
+| `size` | `number` | Total size in bytes |
+| `socket_bound` | `boolean` | Whether socket is connected (false = user online) |
 
 ---
 
@@ -765,13 +765,13 @@ https://hostname/-/svc/media.zip_release
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `id` | string | **Yes** | - | Zip ID to release |
+| `id` | `string` | **Yes** | - | Zip ID to release |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | string | Released zip ID |
+| `id` | `string` | Released zip ID |
 
 ---
 
@@ -793,8 +793,8 @@ https://hostname/-/svc/media.zip_cancel
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `id` | string | **Yes** | - | Zip ID to cancel |
-| `cancelId` | string | **Yes** | - | Process ID to kill |
+| `id` | `string` | **Yes** | - | Zip ID to cancel |
+| `cancelId` | `string` | **Yes** | - | Process ID to kill |
 
 ### Returns
 
@@ -820,19 +820,19 @@ https://hostname/-/svc/media.save
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `content` | string | **Yes** | - | Text content to save |
-| `filename` | string | **Yes** | - | Filename |
-| `pid` | string | No | - | Parent folder ID (for new files) |
-| `id` | string | No | - | Node ID (for updating existing files) |
-| `metadata` | object | No | - | Additional metadata |
+| `content` | `string` | **Yes** | - | Text content to save |
+| `filename` | `string` | **Yes** | - | Filename |
+| `pid` | `string` | No | - | Parent folder ID (for new files) |
+| `id` | `string` | No | - | Node ID (for updating existing files) |
+| `metadata` | `object` | No | - | Additional metadata |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `nid` | string | Node ID of saved file |
-| `filename` | string | Filename |
-| `filesize` | number | Updated file size |
+| `nid` | `string` | Node ID of saved file |
+| `filename` | `string` | Filename |
+| `filesize` | `number` | Updated file size |
 
 ---
 
@@ -854,17 +854,17 @@ https://hostname/-/svc/media.rotate
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `nid` | string | **Yes** | - | Image node ID |
-| `angle` | number (90, 180, 270) | No | `90` | Rotation angle in degrees |
+| `nid` | `string` | **Yes** | - | Image node ID |
+| `angle` | `number (90, 180, 270)` | No | `90` | Rotation angle in degrees |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `nid` | string | Image node ID |
-| `mtime` | number | Updated modification timestamp |
-| `metadata` | object | Updated metadata with new md5Hash |
-| `args` | object | Changelog info |
+| `nid` | `string` | Image node ID |
+| `mtime` | `number` | Updated modification timestamp |
+| `metadata` | `object` | Updated metadata with new md5Hash |
+| `args` | `object` | Changelog info |
 
 ### Possible Errors
 
@@ -893,20 +893,20 @@ https://hostname/-/svc/media.replace
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `nid` | string | **Yes** | - | Node ID of file to replace |
-| `file` | file | **Yes** | - | New file content |
-| `filename` | string | **Yes** | - | New filename |
-| `md5Hash` | string | No | - | MD5 hash of new file |
+| `nid` | `string` | **Yes** | - | Node ID of file to replace |
+| `file` | `file` | **Yes** | - | New file content |
+| `filename` | `string` | **Yes** | - | New filename |
+| `md5Hash` | `string` | No | - | MD5 hash of new file |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `nid` | string | Node ID |
-| `filename` | string | Updated filename |
-| `filesize` | number | Updated file size |
-| `extension` | string | Updated file extension |
-| `replace` | number | 1 (confirmation flag) |
+| `nid` | `string` | Node ID |
+| `filename` | `string` | Updated filename |
+| `filesize` | `number` | Updated file size |
+| `extension` | `string` | Updated file extension |
+| `replace` | `number` | 1 (confirmation flag) |
 
 ### Possible Errors
 
@@ -934,14 +934,14 @@ https://hostname/-/svc/media.mark_as_seen
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `nid` | string | **Yes** | - | Node ID to mark as seen |
+| `nid` | `string` | **Yes** | - | Node ID to mark as seen |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `nid` | string | Node ID |
-| `status` | string | seen |
+| `nid` | `string` | Node ID |
+| `status` | `string` | seen |
 
 ---
 
@@ -963,15 +963,15 @@ https://hostname/-/svc/media.summary
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `nid` | string | **Yes** | - | Folder node ID |
+| `nid` | `string` | **Yes** | - | Folder node ID |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `total_files` | number | Total number of files |
-| `total_size` | number | Total size in bytes |
-| `by_category` | object | Breakdown by file category |
+| `total_files` | `number` | Total number of files |
+| `total_size` | `number` | Total size in bytes |
+| `by_category` | `object` | Breakdown by file category |
 
 ---
 

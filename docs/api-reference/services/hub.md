@@ -35,14 +35,14 @@ https://hostname/-/svc/hub.get_settings
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `owner` | object | Hub owner information |
-| `visitor` | object | Current user's privilege information |
-| `visitor.privilege` | number | User's privilege level in this hub |
-| `users` | array<object> | List of hub members (excluding system users) |
-| `users[].id` | string | User ID |
-| `users[].privilege` | number | User privilege level |
-| `hubname` | string | Hub name |
-| `default_privilege` | number | Default privilege for new members |
+| `owner` | `object` | Hub owner information |
+| `visitor` | `object` | Current user's privilege information |
+| `visitor.privilege` | `number` | User's privilege level in this hub |
+| `users` | `array<object>` | List of hub members (excluding system users) |
+| `users[].id` | `string` | User ID |
+| `users[].privilege` | `number` | User privilege level |
+| `hubname` | `string` | Hub name |
+| `default_privilege` | `number` | Default privilege for new members |
 
 ---
 
@@ -64,11 +64,11 @@ https://hostname/-/svc/hub.get_attributes
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | string | Hub ID |
-| `name` | string | Hub name |
-| `area` | string | Hub area (private, public, share) |
-| `owner_id` | string | Owner user ID |
-| `settings` | object | Hub settings object |
+| `id` | `string` | Hub ID |
+| `name` | `string` | Hub name |
+| `area` | `string` | Hub area (private, public, share) |
+| `owner_id` | `string` | Owner user ID |
+| `settings` | `object` | Hub settings object |
 
 ---
 
@@ -90,14 +90,14 @@ https://hostname/-/svc/hub.get_contributors
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `page` | number (min: 1) | No | `1` | Page number for pagination |
-| `privilege` | number | No | `0` | Filter by privilege level (0 for all) |
+| `page` | `number (min: 1)` | No | `1` | Page number for pagination |
+| `privilege` | `number` | No | `0` | Filter by privilege level (0 for all) |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `contributors` | array<object> | Array of contributor objects |
+| `contributors` | `array<object>` | Array of contributor objects |
 
 ---
 
@@ -119,13 +119,13 @@ https://hostname/-/svc/hub.show_contributors
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `page` | number (min: 1) | No | `1` | Page number for pagination |
+| `page` | `number (min: 1)` | No | `1` | Page number for pagination |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `contributors` | array | Array of contributor objects |
+| `contributors` | `array` | Array of contributor objects |
 
 ---
 
@@ -147,17 +147,17 @@ https://hostname/-/svc/hub.add_contributors
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `users` | array<string> | **Yes** | - | Array of user IDs or emails to add |
-| `privilege` | number | No | - | Privilege level to grant (defaults to hub's default_privilege) |
-| `hours` | number | No | `0` | Hours until membership expires |
-| `days` | number | No | `0` | Days until membership expires |
-| `message` | string | No | - | Optional message to send to new members |
+| `users` | `array<string>` | **Yes** | - | Array of user IDs or emails to add |
+| `privilege` | `number` | No | - | Privilege level to grant (defaults to hub's default_privilege) |
+| `hours` | `number` | No | `0` | Hours until membership expires |
+| `days` | `number` | No | `0` | Days until membership expires |
+| `message` | `string` | No | - | Optional message to send to new members |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `members` | array | Updated list of hub members (not_owner type) |
+| `members` | `array` | Updated list of hub members (not_owner type) |
 
 ---
 
@@ -179,13 +179,13 @@ https://hostname/-/svc/hub.delete_contributor
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `users` | array<string> | **Yes** | - | Array of user IDs to remove (cannot remove self) |
+| `users` | `array<string>` | **Yes** | - | Array of user IDs to remove (cannot remove self) |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `members` | array | Updated list of remaining hub members |
+| `members` | `array` | Updated list of remaining hub members |
 
 ---
 
@@ -207,15 +207,15 @@ https://hostname/-/svc/hub.set_privilege
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `users` | array<string> | **Yes** | - | Array of user IDs |
-| `privilege` | number | No | - | Privilege level to set (defaults to hub's default_privilege) |
-| `permission` | number | No | - | Alias for privilege parameter |
+| `users` | `array<string>` | **Yes** | - | Array of user IDs |
+| `privilege` | `number` | No | - | Privilege level to set (defaults to hub's default_privilege) |
+| `permission` | `number` | No | - | Alias for privilege parameter |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `users` | array | Array of user IDs that were updated |
+| `users` | `array` | Array of user IDs that were updated |
 
 ---
 
@@ -237,17 +237,17 @@ https://hostname/-/svc/hub.set_member_privilege
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `uid` | string | **Yes** | - | User ID to update |
-| `privilege` | number | No | - | Privilege level to grant |
-| `permission` | number | No | - | Alias for privilege parameter |
-| `days` | number | No | `0` | Days until privilege expires |
-| `hours` | number | No | `0` | Hours until privilege expires |
+| `uid` | `string` | **Yes** | - | User ID to update |
+| `privilege` | `number` | No | - | Privilege level to grant |
+| `permission` | `number` | No | - | Alias for privilege parameter |
+| `days` | `number` | No | `0` | Days until privilege expires |
+| `hours` | `number` | No | `0` | Hours until privilege expires |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `members` | array | Updated list of hub members (not_owner type) |
+| `members` | `array` | Updated list of hub members (not_owner type) |
 
 ---
 
@@ -269,10 +269,10 @@ https://hostname/-/svc/hub.get_space_usage
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `total` | number | Total storage quota in bytes |
-| `selected` | number | Space used by this hub in bytes |
-| `others` | number | Space used by other hubs and user data in bytes |
-| `free` | number | Free space available in bytes |
+| `total` | `number` | Total storage quota in bytes |
+| `selected` | `number` | Space used by this hub in bytes |
+| `others` | `number` | Space used by other hubs and user data in bytes |
+| `free` | `number` | Free space available in bytes |
 
 ---
 
@@ -294,17 +294,17 @@ https://hostname/-/svc/hub.update_name
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `name` | string (min: 1) | **Yes** | - | New hub name |
+| `name` | `string (min: 1)` | **Yes** | - | New hub name |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | string | Hub ID |
-| `hubname` | string | Updated hub name |
-| `name` | string | Updated hub name |
-| `fieldName` | string | hubname |
-| `error` | string | ALREADY_EXISTS if name is taken |
+| `id` | `string` | Hub ID |
+| `hubname` | `string` | Updated hub name |
+| `name` | `string` | Updated hub name |
+| `fieldName` | `string` | hubname |
+| `error` | `string` | ALREADY_EXISTS if name is taken |
 
 ### Possible Errors
 
@@ -332,16 +332,16 @@ https://hostname/-/svc/hub.poke
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `uid` | string | **Yes** | - | User ID to notify |
-| `nid` | string | **Yes** | - | Node ID related to notification |
-| `kind` | string | **Yes** | - | Type of notification |
+| `uid` | `string` | **Yes** | - | User ID to notify |
+| `nid` | `string` | **Yes** | - | Node ID related to notification |
+| `kind` | `string` | **Yes** | - | Type of notification |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `sender` | string | Sender user ID (current user) |
-| `recipient` | string | Recipient user ID |
+| `sender` | `string` | Sender user ID (current user) |
+| `recipient` | `string` | Recipient user ID |
 
 ---
 
@@ -363,14 +363,14 @@ https://hostname/-/svc/hub.logo
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `protocol` | string | No | - | Protocol (http or https) |
-| `localhost` | string | No | - | Localhost flag for local development |
+| `protocol` | `string` | No | - | Protocol (http or https) |
+| `localhost` | `string` | No | - | Localhost flag for local development |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `url` | string | Full URL to hub logo image |
+| `url` | `string` | Full URL to hub logo image |
 
 ---
 

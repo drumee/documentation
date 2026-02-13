@@ -35,18 +35,18 @@ https://hostname/-/svc/desk.home
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `page` | number (min: 1) | No | `1` | Page number for pagination |
+| `page` | `number (min: 1)` | No | `1` | Page number for pagination |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `items` | array<object> | Array of media items (files and folders) |
-| `items[].id` | string | Node ID |
-| `items[].filename` | string | File or folder name |
-| `items[].category` | string | Node type: file, folder, hub |
-| `items[].filesize` | number | Size in bytes |
-| `items[].rank` | number | Sort order position |
+| `items` | `array<object>` | Array of media items (files and folders) |
+| `items[].id` | `string` | Node ID |
+| `items[].filename` | `string` | File or folder name |
+| `items[].category` | `string` | Node type: file, folder, hub |
+| `items[].filesize` | `number` | Size in bytes |
+| `items[].rank` | `number` | Sort order position |
 
 ---
 
@@ -68,11 +68,11 @@ https://hostname/-/svc/desk.get_env
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `filenames` | array | List of all filenames in user's workspace |
-| `privilege` | number | User privilege level (always 7 for owner) |
-| `quota` | object | User quota limits |
-| `quota.storage` | number | Available storage in bytes |
-| `quota.real` | number | Real disk space available |
+| `filenames` | `array` | List of all filenames in user's workspace |
+| `privilege` | `number` | User privilege level (always 7 for owner) |
+| `quota` | `object` | User quota limits |
+| `quota.storage` | `number` | Available storage in bytes |
+| `quota.real` | `number` | Real disk space available |
 
 ---
 
@@ -94,18 +94,18 @@ https://hostname/-/svc/desk.search
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `string` | string (min: 1) | **Yes** | - | Search pattern (filename substring) |
-| `page` | number (min: 1) | No | `1` | Page number for pagination |
+| `string` | `string (min: 1)` | **Yes** | - | Search pattern (filename substring) |
+| `page` | `number (min: 1)` | No | `1` | Page number for pagination |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `results` | array<object> | Array of matching media items |
-| `results[].id` | string | Node ID |
-| `results[].filename` | string | Matched filename |
-| `results[].file_path` | string | Full path to file |
-| `results[].category` | string | Node type |
+| `results` | `array<object>` | Array of matching media items |
+| `results[].id` | `string` | Node ID |
+| `results[].filename` | `string` | Matched filename |
+| `results[].file_path` | `string` | Full path to file |
+| `results[].category` | `string` | Node type |
 
 ---
 
@@ -127,17 +127,17 @@ https://hostname/-/svc/desk.my_wallpapers
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `page` | number (min: 1) | No | `1` | Page number for pagination |
+| `page` | `number (min: 1)` | No | `1` | Page number for pagination |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `wallpapers` | array<object> | Combined list of user wallpapers (first) and system wallpapers (second) |
-| `wallpapers[].id` | string | Wallpaper node ID |
-| `wallpapers[].filename` | string | Wallpaper filename |
-| `wallpapers[].category` | string | image |
-| `wallpapers[].source` | string | user or system |
+| `wallpapers` | `array<object>` | Combined list of user wallpapers (first) and system wallpapers (second) |
+| `wallpapers[].id` | `string` | Wallpaper node ID |
+| `wallpapers[].filename` | `string` | Wallpaper filename |
+| `wallpapers[].category` | `string` | image |
+| `wallpapers[].source` | `string` | user or system |
 
 ---
 
@@ -159,18 +159,18 @@ https://hostname/-/svc/desk.disk_usage
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `page` | number (min: 1) | No | `1` | Page number for pagination |
-| `category` | string | No | `"*"` | Filter by category: video, image, audio, document, or * for all |
-| `list` | boolean | No | - | If true, return detailed file list instead of summary |
+| `page` | `number (min: 1)` | No | `1` | Page number for pagination |
+| `category` | `string` | No | `"*"` | Filter by category: video, image, audio, document, or * for all |
+| `list` | `boolean` | No | - | If true, return detailed file list instead of summary |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `summary` | object | Usage summary by category (if list=false) |
-| `summary.total_size` | number | Total bytes used |
-| `summary.file_count` | number | Total number of files |
-| `files` | array<object> | Detailed file list (if list=true) |
+| `summary` | `object` | Usage summary by category (if list=false) |
+| `summary.total_size` | `number` | Total bytes used |
+| `summary.file_count` | `number` | Total number of files |
+| `files` | `array<object>` | Detailed file list (if list=true) |
 
 ---
 
@@ -193,20 +193,20 @@ https://hostname/-/svc/desk.create_hub
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `filename` | string (min: 1, max: 255) | **Yes** | - | Hub name (will be sanitized for hostname) |
-| `area` | string (private, public, share) | No | `"private"` | Hub visibility area |
-| `pid` | string | No | - | Parent folder ID (defaults to home_id) |
+| `filename` | `string (min: 1, max: 255)` | **Yes** | - | Hub name (will be sanitized for hostname) |
+| `area` | `string (private, public, share)` | No | `"private"` | Hub visibility area |
+| `pid` | `string` | No | - | Parent folder ID (defaults to home_id) |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `hub_id` | string | New hub ID |
-| `filename` | string | Actual filename used (may differ from input) |
-| `hostname` | string | Hub hostname |
-| `area` | string | Hub area |
-| `home_id` | string | Hub's home directory node ID |
-| `privilege` | number | User's privilege level (7 for owner) |
+| `hub_id` | `string` | New hub ID |
+| `filename` | `string` | Actual filename used (may differ from input) |
+| `hostname` | `string` | Hub hostname |
+| `area` | `string` | Hub area |
+| `home_id` | `string` | Hub's home directory node ID |
+| `privilege` | `number` | User's privilege level (7 for owner) |
 
 ### Possible Errors
 
@@ -236,8 +236,8 @@ https://hostname/-/svc/desk.limit
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `storage` | number | Available storage in bytes |
-| `real` | number | Real disk space available (or infinity if unlimited) |
+| `storage` | `number` | Available storage in bytes |
+| `real` | `number` | Real disk space available (or infinity if unlimited) |
 
 ---
 
@@ -259,10 +259,10 @@ https://hostname/-/svc/desk.create_wicket
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `wicket_id` | string | Wicket hub ID |
-| `id` | string | Home directory node ID |
-| `filename` | string | Wicket folder name |
-| `category` | string | hub |
+| `wicket_id` | `string` | Wicket hub ID |
+| `id` | `string` | Home directory node ID |
+| `filename` | `string` | Wicket folder name |
+| `category` | `string` | hub |
 
 ---
 
@@ -284,18 +284,18 @@ https://hostname/-/svc/desk.set_mfa
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `secret` | string | **Yes** | - | MFA secret key (from QR code setup) |
-| `code` | string (min: 6, max: 6) | **Yes** | - | TOTP verification code from authenticator app |
-| `mfa` | number (0, 1) | No | - | Enable (1) or disable (0) MFA |
+| `secret` | `string` | **Yes** | - | MFA secret key (from QR code setup) |
+| `code` | `string (min: 6, max: 6)` | **Yes** | - | TOTP verification code from authenticator app |
+| `mfa` | `number (0, 1)` | No | - | Enable (1) or disable (0) MFA |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `user` | object | Updated user profile with MFA status |
-| `user.id` | string | User ID |
-| `user.mfa` | number | MFA status (0=disabled, 1=enabled) |
-| `user.otp` | number | One-time password status |
+| `user` | `object` | Updated user profile with MFA status |
+| `user.id` | `string` | User ID |
+| `user.mfa` | `number` | MFA status (0=disabled, 1=enabled) |
+| `user.otp` | `number` | One-time password status |
 
 ### Possible Errors
 
@@ -324,14 +324,14 @@ https://hostname/-/svc/desk.leave_hub
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `nid` | string | No | - | Hub ID to leave (optional, uses context hub if not provided) |
+| `nid` | `string` | No | - | Hub ID to leave (optional, uses context hub if not provided) |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `uid` | string | User ID who left |
-| `hub_id` | string | Hub ID that was left |
+| `uid` | `string` | User ID who left |
+| `hub_id` | `string` | Hub ID that was left |
 
 ### Possible Errors
 
@@ -359,13 +359,13 @@ https://hostname/-/svc/desk.reorder
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `list` | array<object> | **Yes** | - | Array of items to reorder |
+| `list` | `array<object>` | **Yes** | - | Array of items to reorder |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `list` | array<object> | Same list that was sent (confirmation) |
+| `list` | `array<object>` | Same list that was sent (confirmation) |
 
 ---
 
@@ -391,9 +391,9 @@ https://hostname/-/svc/desk.set_online_status
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `hub_id` | string | User's hub ID |
-| `user_id` | string | User ID |
-| `status` | number | Online status (0=offline, 1=online) |
+| `hub_id` | `string` | User's hub ID |
+| `user_id` | `string` | User ID |
+| `status` | `number` | Online status (0=offline, 1=online) |
 
 ---
 

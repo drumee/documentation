@@ -35,12 +35,12 @@ https://hostname/-/svc/drumate.get_profile
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | string | User ID |
-| `email` | string | User email address |
-| `firstname` | string | First name |
-| `lastname` | string | Last name |
-| `fullname` | string | Full name |
-| `profile` | object | Extended profile information (JSON) |
+| `id` | `string` | User ID |
+| `email` | `string` | User email address |
+| `firstname` | `string` | First name |
+| `lastname` | `string` | Last name |
+| `fullname` | `string` | Full name |
+| `profile` | `object` | Extended profile information (JSON) |
 
 ---
 
@@ -62,15 +62,15 @@ https://hostname/-/svc/drumate.update_profile
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `profile` | object | **Yes** | - | Profile fields to update (firstname, lastname, mobile, address, etc.) |
-| `secret` | string | No | - | OTP secret (required if OTP verification needed) |
-| `code` | string | No | - | OTP code (required if OTP verification needed) |
+| `profile` | `object` | **Yes** | - | Profile fields to update (firstname, lastname, mobile, address, etc.) |
+| `secret` | `string` | No | - | OTP secret (required if OTP verification needed) |
+| `code` | `string` | No | - | OTP code (required if OTP verification needed) |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `profile` | object | Updated profile information |
+| `profile` | `object` | Updated profile information |
 
 ### Possible Errors
 
@@ -98,15 +98,15 @@ https://hostname/-/svc/drumate.change_password
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `old_password` | string | **Yes** | - | Current password for verification |
-| `new_password` | string (min: 8) | **Yes** | - | New password (minimum 8 characters) |
+| `old_password` | `string` | **Yes** | - | Current password for verification |
+| `new_password` | `string (min: 8)` | **Yes** | - | New password (minimum 8 characters) |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `status` | string | success or error code |
-| `error` | string | Error code if failed: wrong_password or uncompliant_password |
+| `status` | `string` | success or error code |
+| `error` | `string` | Error code if failed: wrong_password or uncompliant_password |
 
 ### Possible Errors
 
@@ -135,13 +135,13 @@ https://hostname/-/svc/drumate.change_email
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `email` | string (pattern: `^[^@]+@[^@]+\.[^@]+$`) | **Yes** | - | New email address |
+| `email` | `string (pattern: `^[^@]+@[^@]+\.[^@]+$`)` | **Yes** | - | New email address |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `email` | string | Updated email address |
+| `email` | `string` | Updated email address |
 
 ### Possible Errors
 
@@ -170,10 +170,10 @@ https://hostname/-/svc/drumate.data_usage
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `usage` | number | Current disk usage in bytes |
-| `quota` | object | Quota limits |
-| `quota.storage` | number | Total storage quota in bytes |
-| `quota.real` | number | Real available space |
+| `usage` | `number` | Current disk usage in bytes |
+| `quota` | `object` | Quota limits |
+| `quota.storage` | `number` | Total storage quota in bytes |
+| `quota.real` | `number` | Real available space |
 
 ---
 
@@ -195,11 +195,11 @@ https://hostname/-/svc/drumate.notification_center
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `notifications` | array<object> | Array of notification objects |
-| `notifications[].id` | string | Notification ID |
-| `notifications[].entity_id` | string | Related entity (hub or user) ID |
-| `notifications[].type` | string | Notification type |
-| `notifications[].count` | number | Unread count |
+| `notifications` | `array<object>` | Array of notification objects |
+| `notifications[].id` | `string` | Notification ID |
+| `notifications[].entity_id` | `string` | Related entity (hub or user) ID |
+| `notifications[].type` | `string` | Notification type |
+| `notifications[].count` | `number` | Unread count |
 
 ---
 
@@ -222,13 +222,13 @@ https://hostname/-/svc/drumate.logout
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `device_id` | string | No | - | Device ID to unregister (for mobile devices) |
+| `device_id` | `string` | No | - | Device ID to unregister (for mobile devices) |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `session_id` | string | Terminated session ID |
+| `session_id` | `string` | Terminated session ID |
 
 ---
 
@@ -250,10 +250,10 @@ https://hostname/-/svc/drumate.get_otp
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `secret` | string | OTP secret token for verification |
-| `expiry` | number | OTP expiration timestamp |
-| `tips` | string | Hint showing where OTP was sent (last 4 digits of phone or email domain) |
-| `error` | string | Error message if OTP could not be sent |
+| `secret` | `string` | OTP secret token for verification |
+| `expiry` | `number` | OTP expiration timestamp |
+| `tips` | `string` | Hint showing where OTP was sent (last 4 digits of phone or email domain) |
+| `error` | `string` | Error message if OTP could not be sent |
 
 ### Possible Errors
 
@@ -282,14 +282,14 @@ https://hostname/-/svc/drumate.set_avatar
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `reference` | string | **Yes** | - | Node ID of image file in MFS to use as avatar |
+| `reference` | `string` | **Yes** | - | Node ID of image file in MFS to use as avatar |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | string | User ID |
-| `avatar` | string | Avatar URL |
+| `id` | `string` | User ID |
+| `avatar` | `string` | Avatar URL |
 
 ### Possible Errors
 
@@ -317,8 +317,8 @@ https://hostname/-/svc/drumate.remove_avatar
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | string | User ID |
-| `avatar` | string | Default avatar URL |
+| `id` | `string` | User ID |
+| `avatar` | `string` | Default avatar URL |
 
 ---
 
@@ -340,17 +340,17 @@ https://hostname/-/svc/drumate.my_hubs
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `page` | number (min: 1) | No | `1` | Page number for pagination |
+| `page` | `number (min: 1)` | No | `1` | Page number for pagination |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `hubs` | array<object> | Array of hub objects |
-| `hubs[].id` | string | Hub ID |
-| `hubs[].name` | string | Hub name |
-| `hubs[].area` | string | Hub area: private, public, or share |
-| `hubs[].owner_id` | string | Owner user ID |
+| `hubs` | `array<object>` | Array of hub objects |
+| `hubs[].id` | `string` | Hub ID |
+| `hubs[].name` | `string` | Hub name |
+| `hubs[].area` | `string` | Hub area: private, public, or share |
+| `hubs[].owner_id` | `string` | Owner user ID |
 
 ---
 
@@ -372,11 +372,11 @@ https://hostname/-/svc/drumate.disk_space
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `manifest` | array<object> | Array of all media items with detailed metadata |
-| `manifest[].id` | string | Node ID |
-| `manifest[].filename` | string | File or folder name |
-| `manifest[].filesize` | number | Size in bytes |
-| `manifest[].category` | string | Node category |
+| `manifest` | `array<object>` | Array of all media items with detailed metadata |
+| `manifest[].id` | `string` | Node ID |
+| `manifest[].filename` | `string` | File or folder name |
+| `manifest[].filesize` | `number` | Size in bytes |
+| `manifest[].category` | `string` | Node category |
 
 ---
 
@@ -398,19 +398,19 @@ https://hostname/-/svc/drumate.show_login_log
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `page` | number (min: 1) | No | `1` | Page number for pagination |
+| `page` | `number (min: 1)` | No | `1` | Page number for pagination |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `sessions` | array<object> | Array of login session objects |
-| `sessions[].city` | string | Login location city |
-| `sessions[].ip` | string | IP address |
-| `sessions[].intime` | number | Login timestamp |
-| `sessions[].outtime` | number | Logout timestamp (null if still active) |
-| `sessions[].status` | string | Session status |
-| `sessions[].device` | object | Parsed device information from user agent |
+| `sessions` | `array<object>` | Array of login session objects |
+| `sessions[].city` | `string` | Login location city |
+| `sessions[].ip` | `string` | IP address |
+| `sessions[].intime` | `number` | Login timestamp |
+| `sessions[].outtime` | `number` | Logout timestamp (null if still active) |
+| `sessions[].status` | `string` | Session status |
+| `sessions[].device` | `object` | Parsed device information from user agent |
 
 ---
 
@@ -432,13 +432,13 @@ https://hostname/-/svc/drumate.update_settings
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `settings` | object | **Yes** | - | Settings object to merge with existing settings |
+| `settings` | `object` | **Yes** | - | Settings object to merge with existing settings |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `settings` | object | Updated complete settings object |
+| `settings` | `object` | Updated complete settings object |
 
 ---
 
@@ -460,13 +460,13 @@ https://hostname/-/svc/drumate.notification_remove
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `entity_id` | string | No | - | Entity ID (hub_id or user_id) to mark notifications as read. Empty to mark all. |
+| `entity_id` | `string` | No | - | Entity ID (hub_id or user_id) to mark notifications as read. Empty to mark all. |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `ok` | number | Success indicator (1) |
+| `ok` | `number` | Success indicator (1) |
 
 ---
 
@@ -489,14 +489,14 @@ https://hostname/-/svc/drumate.delete_account
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `secret` | string | **Yes** | - | OTP secret from get_otp |
-| `code` | string (min: 6, max: 6) | **Yes** | - | OTP verification code |
+| `secret` | `string` | **Yes** | - | OTP secret from get_otp |
+| `code` | `string (min: 6, max: 6)` | **Yes** | - | OTP verification code |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `secret` | string | Deletion confirmation token (sent to email) |
+| `secret` | `string` | Deletion confirmation token (sent to email) |
 
 ### Possible Errors
 
@@ -524,14 +524,14 @@ https://hostname/-/svc/drumate.confirm_delete_account
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `secret` | string | **Yes** | - | Deletion confirmation token from delete_account |
+| `secret` | `string` | **Yes** | - | Deletion confirmation token from delete_account |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `rejected` | number | 1 if deletion rejected (invalid secret) |
-| `reason` | string | Rejection reason code |
+| `rejected` | `number` | 1 if deletion rejected (invalid secret) |
+| `reason` | `string` | Rejection reason code |
 
 ### Possible Errors
 
@@ -559,16 +559,16 @@ https://hostname/-/svc/drumate.update_ident
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `ident` | string | **Yes** | - | New username/ident |
-| `id` | string | **Yes** | - | User ID to update |
+| `ident` | `string` | **Yes** | - | New username/ident |
+| `id` | `string` | **Yes** | - | User ID to update |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | string | User ID |
-| `ident` | string | Updated ident |
-| `username` | string | Updated username |
+| `id` | `string` | User ID |
+| `ident` | `string` | Updated ident |
+| `username` | `string` | Updated username |
 
 ### Possible Errors
 
@@ -596,16 +596,16 @@ https://hostname/-/svc/drumate.hub_to_pro
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `ident` | string | **Yes** | - | Domain identifier (subdomain) |
-| `name` | string | **Yes** | - | Organization name |
+| `ident` | `string` | **Yes** | - | Domain identifier (subdomain) |
+| `name` | `string` | **Yes** | - | Organization name |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | string | Domain ID |
-| `name` | string | Domain name (ident.drumee.com) |
-| `status` | string | Status code (PRO_USER, NAME_NOT_AVAILABLE, or URL_NOT_AVAILABLE if failed) |
+| `id` | `string` | Domain ID |
+| `name` | `string` | Domain name (ident.drumee.com) |
+| `status` | `string` | Status code (PRO_USER, NAME_NOT_AVAILABLE, or URL_NOT_AVAILABLE if failed) |
 
 ### Possible Errors
 
@@ -635,16 +635,16 @@ https://hostname/-/svc/drumate.helpdesk
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `Xlang` | string | No | - | Language code (defaults to user's language) |
-| `page` | number (min: 1) | No | `1` | Page number for pagination |
+| `Xlang` | `string` | No | - | Language code (defaults to user's language) |
+| `page` | `number (min: 1)` | No | `1` | Page number for pagination |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `messages` | array<object> | Array of helpdesk message objects |
-| `messages[].id` | string | Message ID |
-| `messages[].metadata` | object | Message metadata (parsed from JSON) |
+| `messages` | `array<object>` | Array of helpdesk message objects |
+| `messages[].id` | `string` | Message ID |
+| `messages[].metadata` | `object` | Message metadata (parsed from JSON) |
 
 ---
 
