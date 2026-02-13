@@ -2,7 +2,8 @@
 /**
  * Drumee ACL Documentation Generator
  * 
- * Parses ACL JSON files and generates comprehensive API documentation in Markdown format for Docusaurus.
+ * Parses ACL JSON files and generates comprehensive
+ * API documentation in Markdown format for Docusaurus.
  * 
  * Usage:
  *   node generate-api-docs.js <module>          # Generate single module
@@ -130,7 +131,7 @@ function generateParamsTable(params) {
     const defaultVal = spec.default !== undefined ? `\`${JSON.stringify(spec.default)}\`` : '-';
     const doc = spec.doc || '-';
     
-    md += `| \`${name}\` | ${type} | ${required} | ${defaultVal} | ${doc} |\n`;
+    md += `| \`${name}\` | \`${type}\` | ${required} | ${defaultVal} | ${doc} |\n`;
   }
   
   md += '\n';
@@ -166,7 +167,7 @@ function generateReturnsTable(returns, prefix = '') {
     }
     
     const doc = spec.doc || '-';
-    md += `| \`${fieldName}\` | ${type} | ${doc} |\n`;
+    md += `| \`${fieldName}\` | \`${type}\` | ${doc} |\n`;
     
     // Recursively add nested properties
     if (spec.properties) {
@@ -174,7 +175,7 @@ function generateReturnsTable(returns, prefix = '') {
         const nestedFieldName = `${fieldName}.${nestedName}`;
         const nestedType = nestedSpec.type || 'any';
         const nestedDoc = nestedSpec.doc || '-';
-        md += `| \`${nestedFieldName}\` | ${nestedType} | ${nestedDoc} |\n`;
+        md += `| \`${nestedFieldName}\` | \`${nestedType}\` | ${nestedDoc} |\n`;
       }
     }
     
@@ -184,7 +185,7 @@ function generateReturnsTable(returns, prefix = '') {
         const itemFieldName = `${fieldName}[].${itemName}`;
         const itemType = itemSpec.type || 'any';
         const itemDoc = itemSpec.doc || '-';
-        md += `| \`${itemFieldName}\` | ${itemType} | ${itemDoc} |\n`;
+        md += `| \`${itemFieldName}\` | \`${itemType}\` | ${itemDoc} |\n`;
       }
     }
   }
