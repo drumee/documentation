@@ -24,6 +24,20 @@ const CONFIG = {
 // HELPER FUNCTIONS //
 
 /**
+ * Escape text for MDX to prevent JSX interpretation
+ */
+function escapeForMDX(text) {
+  if (!text || typeof text !== 'string') {
+    return text;
+  }
+  
+  // Escape curly braces: { → \{ and } → \}
+  return text
+    .replace(/\{/g, '\\{')
+    .replace(/\}/g, '\\}');
+}
+
+/**
  * Load ACL JSON file
  */
 function loadACL(moduleName) {
@@ -129,7 +143,7 @@ function generateParamsTable(params) {
     const type = formatParamType(spec);
     const required = spec.required ? '**Yes**' : 'No';
     const defaultVal = spec.default !== undefined ? `\`${JSON.stringify(spec.default)}\`` : '-';
-    const doc = spec.doc || '-';
+    const doc = escapeForMDX(spec.doc) || '-';
     
     md += `| \`${name}\` | \`${type}\` | ${required} | ${defaultVal} | ${doc} |\n`;
   }
@@ -166,7 +180,7 @@ function generateReturnsTable(returns, prefix = '') {
       type = 'object';
     }
     
-    const doc = spec.doc || '-';
+    const doc = escapeForMDX(spec.doc) || '-';
     md += `| \`${fieldName}\` | \`${type}\` | ${doc} |\n`;
     
     // Recursively add nested properties
@@ -174,7 +188,7 @@ function generateReturnsTable(returns, prefix = '') {
       for (const [nestedName, nestedSpec] of Object.entries(spec.properties)) {
         const nestedFieldName = `${fieldName}.${nestedName}`;
         const nestedType = nestedSpec.type || 'any';
-        const nestedDoc = nestedSpec.doc || '-';
+        const nestedDoc = escapeForMDX(nestedSpec.doc) || '-';
         md += `| \`${nestedFieldName}\` | \`${nestedType}\` | ${nestedDoc} |\n`;
       }
     }
@@ -184,7 +198,7 @@ function generateReturnsTable(returns, prefix = '') {
       for (const [itemName, itemSpec] of Object.entries(spec.items.properties)) {
         const itemFieldName = `${fieldName}[].${itemName}`;
         const itemType = itemSpec.type || 'any';
-        const itemDoc = itemSpec.doc || '-';
+        const itemDoc = escapeForMDX(itemSpec.doc) || '-';
         md += `| \`${itemFieldName}\` | \`${itemType}\` | ${itemDoc} |\n`;
       }
     }
@@ -208,7 +222,7 @@ function generateErrorsTable(errors) {
   for (const error of errors) {
     const code = `\`${error.code}\``;
     const status = error.http_status || '-';
-    const message = error.doc || error.message || '-';
+    const message = escapeForMDX(error.doc || error.message) || '-';
     
     md += `| ${code} | ${status} | ${message} |\n`;
   }
@@ -228,10 +242,10 @@ function generateExamples(examples) {
   let md = '### Examples\n\n';
   
   for (const example of examples) {
-    md += `#### ${example.title}\n\n`;
+    md += `#### ${escapeForMDX(example.title)}\n\n`;
     
     if (example.description) {
-      md += `${example.description}\n\n`;
+      md += `${escapeForMDX(example.description)}\n\n`;
     }
     
     if (example.request) {
@@ -266,8 +280,8 @@ function generateMethodDoc(moduleName, methodName, config, allServices) {
     return md;
   }
   
-  // Description
-  md += `${config.doc || '*No description provided*'}\n\n`;
+  const description = escapeForMDX(config.doc) || '*No description provided*';
+  md += `${description}\n\n`;
   
   // Metadata table
   md += '| Property | Value |\n';
@@ -338,7 +352,7 @@ sidebar_label: ${moduleName}
   
   // Module description
   if (acl.doc) {
-    md += `${acl.doc}\n\n`;
+    md += `${escapeForMDX(acl.doc)}\n\n`;
   }
   
   // Module info
@@ -538,7 +552,6 @@ function main() {
   console.log(`\nComplete: ${success} succeeded, ${failed} failed\n`);
 }
 
-// Run
 if (require.main === module) {
   main();
 }
