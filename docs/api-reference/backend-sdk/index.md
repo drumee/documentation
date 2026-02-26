@@ -1,7 +1,7 @@
 ---
 id: index
-title: API Reference
-sidebar_label: Overview
+title: Backend API Reference
+sidebar_label: Backend API Reference
 ---
 
 # Drumee Backend API Reference

@@ -1,4 +1,4 @@
-import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
+import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 
 const sidebars: SidebarsConfig = {
   docs: [
@@ -53,15 +53,15 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'API Reference',
+      label: 'SDK Reference',
       link: {
         type: 'generated-index',
-        title: 'API Reference',
+        title: 'SDK Reference',
         description: 'Complete API documentation for Drumee components.',
         slug: '/api-reference',
       },
       items: [
-        'api-reference/backend-api',
+        'api-reference/backend-sdk/index',
         'api-reference/frontend-sdk',
         'api-reference/stored-procedures',
         'api-reference/acl-spec',
