@@ -17,7 +17,7 @@ const path = require('path');
 
 const CONFIG = {
   aclDir: path.join(__dirname, '../acl'),
-  outputDir: path.join(__dirname, '../docs/api-reference/services'),
+  outputDir: path.join(__dirname, '../docs/api-reference/backend-sdk'),
   templateDir: path.join(__dirname, '../docs-templates')
 };
 
@@ -381,9 +381,9 @@ sidebar_label: ${moduleName}
   
   // Footer
   md += '## Related Documentation\n\n';
-  md += '- [ACL System](../../concepts/acl-system.md) - Permission model\n';
-  md += '- [Service Routing](../../concepts/service-routing.md) - URL patterns\n';
-  md += '- [Error Handling](../../guides/error-handling.md) - Error codes\n';
+  md += '- [ACL System](docs/concepts/acl-system.md) - Permission model\n';
+  md += '- [Service Routing](docs/concepts/service-routing.md) - URL patterns\n';
+  md += '- [Error Handling](docs/guides/error-handling.md) - Error codes\n';
   
   return md;
 }
@@ -458,9 +458,9 @@ Complete API documentation for all Drumee backend services.
   
   md += `## Quick Links
 
-- [Getting Started](../../getting-started/installation.md)
-- [Core Concepts](../../concepts/overview.md)
-- [Guides](../../guides/)
+- [Getting Started](docs/getting-started/installation.md)
+- [Core Concepts](docs/concepts/overview.md)
+- [Guides](docs/guides/)
 
 ## Documentation Format
 
@@ -473,9 +473,9 @@ Each module page includes:
 
 ## Need Help?
 
-- Check [Troubleshooting Guide](../../resources/troubleshooting.md)
-- Review [Common Patterns](../../guides/common-patterns.md)
-- See [Example Implementations](../../examples/)
+- Check [Troubleshooting Guide](docs/resources/troubleshooting.md)
+- Review [Common Patterns](docs/guides/common-patterns.md)
+- See [Example Implementations](docs/examples/)
 `;
   
   const indexPath = path.join(CONFIG.outputDir, 'index.md');
