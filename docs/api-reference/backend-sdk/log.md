@@ -12,13 +12,13 @@ sidebar_label: log
 - Private: `service/private/log.js`
 
 **Available Services:** 1
-**Documented Services:** 0
+**Documented Services:** 1
 
 ---
 
 ## log.read
 
-*No description provided*
+Read paginated entries from the server debug log file (log_dir/instance_name/debug.log). Reads the file, splits by newline, reverses the array to return most recent entries first, and returns a page of 20 entries starting from the requested page offset. Each line is parsed as JSON via parseJSON. Requires special_access precheck: the authenticated user must have remit >= 2 in the visitor table.
 
 | Property | Value |
 |----------|-------|
@@ -30,10 +30,31 @@ sidebar_label: log
 https://hostname/-/svc/log.read
 ```
 
+### Parameters
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `page` | `integer` | No | `1` | - |
+
+### Returns
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `type` | `any` | - |
+| `description` | `any` | - |
+| `properties` | `any` | - |
+
+### Possible Errors
+
+| Error Code | HTTP Status | Description |
+|------------|-------------|-------------|
+| `DENIED` | - | User does not have sufficient remit level (remit < 2) to access logs |
+| `INTERNAL_ERROR` | - | Failed to read the debug log file from the filesystem |
+
 ---
 
 ## Related Documentation
 
-- [ACL System](../../concepts/acl-system.md) - Permission model
-- [Service Routing](../../concepts/service-routing.md) - URL patterns
-- [Error Handling](../../guides/error-handling.md) - Error codes
+- [ACL System](docs/concepts/acl-system.md) - Permission model
+- [Service Routing](docs/concepts/service-routing.md) - URL patterns
+- [Error Handling](docs/guides/error-handling.md) - Error codes
