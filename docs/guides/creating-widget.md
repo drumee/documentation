@@ -2,46 +2,45 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Creating Widget — Skeleton Structure & Data Flow
 
-Let's discover **Docusaurus in less than 5 minutes**.
+This guide shows how to create a widget/module following the pattern, based on the folder structure.
 
-## Getting Started
+It focuses on:
 
-Get started by **creating a new site**.
+- **Folder layout**
+- **How skeletons are composed**
+- **Where data lives**
+- **How services/events flow**
+- **How to patch UI using `sys_pn`**
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+---
 
-### What you'll need
+### Structure Explanation
 
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+- `widget/index.js`  
+  → Contains state management, API calls, service handling, and UI patch logic.
 
-## Generate a new site
+- `widget/skeleton/*`  
+  → Contains UI rendering logic only (stateless whenever possible).
 
-Generate a new Docusaurus site using the **classic template**.
+- `widget/skin/*`  
+  → Styling and theme configuration.
 
-The classic template will automatically be added to your project after you run the command:
+---
 
-```bash
-npm init docusaurus@latest my-website classic
+## General Widget Architecture
+
+This diagram represents a **general widget architecture**
+
+```mermaid
+graph TD
+
+  A[Widget Initialized] --> B[Widget Setup State]
+  B --> C[Feed Root Skeleton]
+
+  C --> D[Render Layout Components]
+  D --> E[Header / Hero / Navbar]
+  D --> F[Content Area]
+  D --> G[Global Wrappers (Toast / Overlay) (Optional)]
 ```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
