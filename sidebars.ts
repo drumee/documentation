@@ -172,7 +172,23 @@ const sidebars: SidebarsConfig = {
             },
           ],
         },
-        'api-reference/frontend-sdk',
+        {
+          type: 'category',
+          label: 'Frontend SDK',
+          link: {
+            type: 'doc',
+            id: 'api-reference/frontend-sdk/index',
+          },
+          items: [
+            // {
+            //   type: 'category',
+            //   label: 'Core',
+            //   items: [
+            //     'api-reference/frontend-sdk/mfs',
+            //   ],
+            // },
+          ],
+        },
         'api-reference/stored-procedures',
         'api-reference/acl-spec',
       ],
