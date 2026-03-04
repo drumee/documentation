@@ -34,7 +34,7 @@ It focuses on:
 This diagram represents a **general widget architecture**
 
 ```mermaid
-graph TD
+  graph TD
 
   A[Widget Initialized] --> B[Widget Setup State]
   B --> C[Feed Root Skeleton]
