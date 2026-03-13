@@ -185,7 +185,11 @@ const sidebars: SidebarsConfig = {
             {
               type: "category",
               label: "Core",
-              items: ["api-reference/frontend-sdk/core/append"],
+              items: [
+                "api-reference/frontend-sdk/core/append",
+                "api-reference/frontend-sdk/core/prepend",
+                "api-reference/frontend-sdk/core/feed",
+              ],
             },
             {
               type: "category",
