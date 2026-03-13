@@ -1,47 +1,104 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
+title: Playground
+description: Try Drumee's service API without installing anything
 ---
 
 # Playground
 
-Let's discover **Docusaurus in less than 5 minutes**.
+The Drumee playground lets you call live service endpoints and inspect responses without setting up a local environment. It is the fastest way to understand how the request-response model works before writing your first integration.
 
-## Getting Started
+Sandbox: [https://drumee.in/-/#/sandbox](https://drumee.in/-/#/sandbox)
 
-Get started by **creating a new site**.
+---
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+## How Drumee Services Work
 
-### What you'll need
+Every Drumee service is reachable through a single endpoint path:
 
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
+```
+protocol://hostname/-/svc/module.method
 ```
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+There are no hard-coded routes in the backend. Each service is identified only by its `module.method` name. The server reads the ACL configuration for that service, checks the caller's session privilege, and dispatches to the implementation.
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+---
 
-## Start your site
+## Making Requests
 
-Run the development server:
+### GET requests
+
+Use GET for read-only queries. Arguments may be passed as a URL-encoded JSON object or as standard key-value pairs.
+
+**Using curl:**
 
 ```bash
-cd my-website
-npm run start
+curl -X GET "https://endpoint.host/-/svc/mymodule.mymethod?myfield=myvalue&..."
 ```
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+**Using the Drumee SDK:**
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+```js
+this.fetchService("mymodule.mymethod", { myfield: myvalue, ...mydata })
+  .then((response_data) => { ... })
+  .catch(() => {});
+```
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+### POST / PUT / DELETE requests
+
+Use POST (or PUT/DELETE) for operations with side effects. Arguments are sent as a JSON object or array in the request body.
+
+**Using curl:**
+
+```bash
+curl -X POST https://endpoint.host/-/svc/mymodule.mymethod \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -d '{
+    "myfield": "myvalue",
+    ...
+  }'
+```
+
+**Using the Drumee SDK:**
+
+```js
+this.postService("mymodule.mymethod", { myfield: myvalue, ...mydata })
+  .then((response_data) => { ... })
+  .catch(() => {});
+```
+
+---
+
+## Request Context
+
+Each service call is evaluated within a session context. The server attaches the following components to every request:
+
+| Component | Role |
+|---|---|
+| `session` | Determines the privilege level granted to the incoming request |
+| `acl` | Enforces fine-grained security checks per service |
+| `input` | Parses and validates data sent by the caller |
+| `output` | Formats and sends the response back as JSON |
+| `exception` | Sends error details when the service fails or is denied |
+
+A request is only dispatched to the service method if the caller's session privilege satisfies the `permission` requirement declared in the ACL file for that service.
+
+---
+
+## Trying an Endpoint in the Sandbox
+
+1. Open [https://drumee.in/-/#/sandbox](https://drumee.in/-/#/sandbox)
+2. Select a module and method from the list
+3. Fill in any required parameters
+4. Submit the request and inspect the JSON response
+
+The sandbox runs against the live Drumee platform, so responses reflect real system state. Read-only operations (services with `permission.src: "read"`) can be called freely. Write operations require an authenticated session.
+
+---
+
+## See Also
+
+- [ACL System](../concepts/acl-system.md) — how permission checks work
+- [ACL Field Specification](../api-reference/acl-spec.md) — full reference for service permission fields
+- [Backend SDK Reference](../api-reference/backend-sdk/index.md) — all available services grouped by module
