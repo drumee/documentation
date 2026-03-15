@@ -211,7 +211,13 @@ const sidebars: SidebarsConfig = {
             {
               type: "category",
               label: "Builtins",
-              items: ["api-reference/frontend-sdk/builtins/editor"],
+              items: [
+                "api-reference/frontend-sdk/builtins/editor",
+                "api-reference/frontend-sdk/builtins/media",
+                "api-reference/frontend-sdk/builtins/player",
+                "api-reference/frontend-sdk/builtins/webrtc",
+                "api-reference/frontend-sdk/builtins/window",
+              ],
             },
           ],
         },

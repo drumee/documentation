@@ -4,4 +4,9 @@ title: editor
 sidebar_label: editor
 ---
 
-# editor
+# Editor Widgets
+
+- Diagram
+- JSON
+- Markdown
+- Note
