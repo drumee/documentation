@@ -10,7 +10,7 @@ const config: Config = {
   url: 'https://drumee.github.io',
   baseUrl: '/',
   organizationName: 'drumee',
-  projectName: 'drumee-docs',
+  projectName: 'documentation',
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -27,7 +27,7 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           routeBasePath: '/',
-          editUrl: 'https://github.com/drumee/drumee-docs/tree/main/',
+          editUrl: 'https://github.com/drumee/documentation/tree/main/',
         },
         blog: false,
         theme: {
@@ -47,7 +47,7 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'docs',
+          sidebarId: 'documentation',
           position: 'left',
           label: 'Documentation',
         },
