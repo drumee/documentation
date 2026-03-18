@@ -219,6 +219,15 @@ const sidebars: SidebarsConfig = {
                 "api-reference/frontend-sdk/builtins/window",
               ],
             },
+            {
+              type: "category",
+              label: "Skeleton Structure",
+              items: [
+                "api-reference/frontend-sdk/skeleton-structure/serviceAndonUIEvent",
+                "api-reference/frontend-sdk/skeleton-structure/uihandlerServiceonUIEvent",
+                "api-reference/frontend-sdk/skeleton-structure/partHandlersyspnOnpartready",
+              ],
+            },
           ],
         },
         "api-reference/stored-procedures",

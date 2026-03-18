@@ -38,6 +38,12 @@ Complete documentation for all Drumee Frontend services.
 - [webrtc](./builtins/webrtc.md)
 - [window](./builtins/window.md)
 
+### Skeleton Structure
+
+- [Service vs UI Events](./skeleton-structure/serviceAndonUIEvent.md)
+- [uiHandler & Event Flow](./skeleton-structure/uihandlerServiceonUIEvent.md)
+- [Part Lifecycle Handling](./skeleton-structure/partHandlersyspnOnpartready.md)
+
 ## Need Help?
 
 - Check [Troubleshooting Guide](../../resources/troubleshooting.md)
