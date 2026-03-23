@@ -237,6 +237,15 @@ const sidebars: SidebarsConfig = {
                 "api-reference/frontend-sdk/socket/upload",
               ],
             },
+            {
+              type: "category",
+              label: "Skeletons",
+              items: [
+                "api-reference/frontend-sdk/skeletons/avatar",
+                "api-reference/frontend-sdk/skeletons/box",
+                "api-reference/frontend-sdk/skeletons/button",
+              ],
+            },
           ],
         },
         "api-reference/stored-procedures",

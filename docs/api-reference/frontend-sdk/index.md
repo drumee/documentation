@@ -50,6 +50,12 @@ Complete documentation for all Drumee Frontend services.
 - [Utils](./socket/utils.md)
 - [Upload](./socket/upload.md)
 
+### Skeletons
+
+- [Avatar](./skeletons/avatar.md)
+- [Box](./skeletons/box.md)
+- [Button](./skeletons/button.md)
+
 ## Need Help?
 
 - Check [Troubleshooting Guide](../../resources/troubleshooting.md)
