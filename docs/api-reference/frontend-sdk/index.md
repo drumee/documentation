@@ -50,6 +50,26 @@ Complete documentation for all Drumee Frontend services.
 - [Utils](./socket/utils.md)
 - [Upload](./socket/upload.md)
 
+### Skeletons
+
+- [Avatar](./skeletons/avatar.md)
+- [Box](./skeletons/box.md)
+- [Button](./skeletons/button.md)
+- [Element](./skeletons/element.md)
+- [File Selector](./skeletons/fileSelector.md)
+- [Entry](./skeletons/entry.md)
+- [Entry Box](./skeletons/entryBox.md)
+- [Image](./skeletons/image.md)
+- [List](./skeletons/list.md)
+- [Messenger](./skeletons/messenger.md)
+- [Note](./skeletons/note.md)
+- [Profile](./skeletons/profile.md)
+- [Progress](./skeletons/progress.md)
+- [Rich Text](./skeletons/richText.md)
+- [Textarea](./skeletons/textarea.md)
+- [User Profile](./skeletons/userProfile.md)
+- [Wrapper](./skeletons/wrapper.md)
+
 ## Need Help?
 
 - Check [Troubleshooting Guide](../../resources/troubleshooting.md)
