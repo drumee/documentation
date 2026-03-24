@@ -228,6 +228,15 @@ const sidebars: SidebarsConfig = {
                 "api-reference/frontend-sdk/skeleton-structure/partHandlersyspnOnpartready",
               ],
             },
+            {
+              type: "category",
+              label: "Socket",
+              items: [
+                "api-reference/frontend-sdk/socket/request",
+                "api-reference/frontend-sdk/socket/utils",
+                "api-reference/frontend-sdk/socket/upload",
+              ],
+            },
           ],
         },
         "api-reference/stored-procedures",

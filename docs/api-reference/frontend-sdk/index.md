@@ -44,6 +44,12 @@ Complete documentation for all Drumee Frontend services.
 - [uiHandler & Event Flow](./skeleton-structure/uihandlerServiceonUIEvent.md)
 - [Part Lifecycle Handling](./skeleton-structure/partHandlersyspnOnpartready.md)
 
+### Socket
+
+- [Request](./socket/request.md)
+- [Utils](./socket/utils.md)
+- [Upload](./socket/upload.md)
+
 ## Need Help?
 
 - Check [Troubleshooting Guide](../../resources/troubleshooting.md)
