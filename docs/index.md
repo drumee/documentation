@@ -1,5 +1,5 @@
 ---
-id: what-is-drumee
+id: index
 title: What is Drumee?
 slug: /
 ---

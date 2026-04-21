@@ -52,7 +52,7 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'docs',
+          sidebarId: 'documentation',
           position: 'left',
           label: 'Documentation',
         },
