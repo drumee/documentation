@@ -17,7 +17,7 @@ Frontend Request
 │
 ▼ Check caller's privilege level
 │
-├── Privilege >= Required? → Execute Service → Return Result
+├── Privilege & Required? → Execute Service → Return Result
 │
 └── No → 403 Forbidden
 ```
