@@ -27,11 +27,11 @@ Drumee uses a numeric bitwise privilege model. Higher values include the capabil
 
 | Level | Value | Description |
 |-------|-------|-------------|
-| `anonymous` | 0 | No authentication required. Open to any request. |
+| `anonymous` | 1 | No authentication required. Open to any request. |
 | `read` | 2 | Authenticated user with at least read access on the resource. |
 | `write` | 4 | Authenticated user with write access. |
-| `admin` | 6 | Hub or domain administrator. |
-| `owner` | 7 | The resource owner. Highest privilege level. |
+| `admin` | 8 | Hub or domain administrator. |
+| `owner` | 16 | The resource owner. Highest privilege level. |
 
 ## Scope Types
 
@@ -41,7 +41,6 @@ The `scope` field in an ACL entry defines the context in which the service opera
 |-------|-------------|
 | `hub` | Requires an active Hub context. The request must include a `hub_id` or be routed to a Hub endpoint. |
 | `domain` | Requires domain-level authentication. Used for organisation-wide operations. |
-| `public` | No Hub context required. Accessible from the public API endpoint (`/-/api/`). |
 
 ## ACL JSON Structure
 

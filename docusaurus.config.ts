@@ -79,9 +79,9 @@ const config: Config = {
         {
           title: 'Documentation',
           items: [
-            { label: 'Getting Started', to: '/' },
-            { label: 'Concepts', to: '/category/concepts' },
-            { label: 'API Reference', to: '/category/api-reference' },
+            { label: 'Introduction', to: '/category/introduction' },
+            { label: 'Technology', to: '/category/technology' },
+            { label: 'Getting Started', to: '/category/getting-started' },
           ],
         },
         {
