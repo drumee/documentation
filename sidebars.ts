@@ -2,6 +2,7 @@ import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
 
 const sidebars: SidebarsConfig = {
   docs: [
+    "introduction/what-is-drumee",
     {
       type: "category",
       label: "Introduction",
@@ -13,7 +14,6 @@ const sidebars: SidebarsConfig = {
         slug: "/introduction",
       },
       items: [
-        "introduction/what-is-drumee",
         "introduction/the-problem",
         "introduction/the-answer",
         "introduction/positioning",
