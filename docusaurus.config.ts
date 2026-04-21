@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'Drumee Documentation',
+  title: 'Welcome to Drumee Documentation',
   tagline: 'Meta Operating System for Sovereign Web Applications',
   favicon: 'img/favicon.ico',
 
@@ -36,7 +36,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          routeBasePath: '/',  // Docs are at root of this deployment
+          //routeBasePath: '/',  // Docs are at root of this deployment
           editUrl: 'https://github.com/drumee/documentation/tree/main/',
         },
       } satisfies Preset.Options,
