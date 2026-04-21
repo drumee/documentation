@@ -1,3 +1,11 @@
+---
+id: positioning
+title: Positioning
+slug: /introduction/positioning
+---
+
+# Positioning
+
 ## What Category Does Drumee Belong To?
 
 Drumee creates its own category: **Sovereign Data Infrastructure**.

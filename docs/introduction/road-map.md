@@ -1,3 +1,9 @@
+---
+id: road-map
+title: Road Map
+slug: /introduction/road-map
+---
+
 # Roadmap
 
 Drumee's roadmap is driven by one principle: **sovereignty first, usability second, extensibility third.** We ship when it works, not when it looks good on a slide.

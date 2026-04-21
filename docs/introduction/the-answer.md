@@ -1,3 +1,11 @@
+---
+id: the-answer
+title: The Answer
+slug: /introduction/the-answer
+---
+
+# The Answer
+
 Drumee eliminates that dependency.
 
 When you deploy Drumee:

@@ -1,3 +1,9 @@
+---
+id: why-drumee
+title: Why Drumee?
+slug: /introduction/why-drumee
+---
+
 # Why Drumee?
 
 Cloud tools are not neutral infrastructure.  

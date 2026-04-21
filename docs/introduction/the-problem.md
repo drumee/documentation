@@ -1,3 +1,11 @@
+---
+id: the-problem
+title: The Problem
+slug: /introduction/the-problem
+---
+
+# The Problem
+
 Modern teams operate on fragmented systems:
 
 * Files in Google Drive  

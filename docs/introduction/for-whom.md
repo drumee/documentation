@@ -1,3 +1,11 @@
+---
+id: for-whom
+title: For Whom
+slug: /introduction/for-whom
+---
+
+# For Whom
+
 **We didn’t build Drumee for a segment.**  
 **We built it for a problem.**
 

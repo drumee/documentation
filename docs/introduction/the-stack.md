@@ -1,3 +1,9 @@
+---
+id: the-stack
+title: The Drumee Stack
+slug: /introduction/the-stack
+---
+
 # The Drumee Stack
 
 Drumee is a **Meta Operating System** — an OS-like full-stack framework that provides every layer of a web application in a single, coherent architecture. Unlike typical web applications that stitch together separate tools for auth, storage, backend, and frontend, Drumee ships everything as one integrated system.

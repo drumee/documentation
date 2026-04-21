@@ -1,3 +1,9 @@
+---
+id: our-history
+title: Our Story
+slug: /introduction/our-history
+---
+
 # Our Story
 
 Drumee was created by Somanos Sar — driven by a belief that data ownership should belong to users, not platforms.
