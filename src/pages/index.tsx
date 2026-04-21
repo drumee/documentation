@@ -20,7 +20,7 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/index">
+            to="/docs/introduction/what-is-drumee">
             Drumee Documentation
           </Link>
         </div>
