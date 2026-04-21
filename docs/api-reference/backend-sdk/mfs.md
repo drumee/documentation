@@ -126,8 +126,8 @@ https://hostname/-/svc/mfs.node_summary
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `hub_id` | `string (pattern: `^[a-z0-9]{16}$`)` | **Yes** | - | Hub ID containing the node |
-| `nid` | `string (pattern: `^[a-z0-9]{16}$`)` | **Yes** | - | Node ID (file or folder) |
+| `hub_id` | `string` (pattern: `^[a-z0-9]{16}$`) | **Yes** | - | Hub ID containing the node |
+| `nid` | `string` (pattern: `^[a-z0-9]{16}$`) | **Yes** | - | Node ID (file or folder) |
 
 ### Returns
 

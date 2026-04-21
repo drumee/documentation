@@ -33,7 +33,7 @@ Each node has a unique id (UUID), an owner_id, a parent_id pointing to its conta
 
 Physical files live under a content-addressed path:
 
-> {mfs_dir}/{VFS_ROOT_NODE}/{node_id}/
+> `{mfs_dir}/{VFS_ROOT_NODE}/{node_id}/`
 
 
 The application never exposes this path to the client. Downloads and uploads go through MFS service endpoints that perform permission checks before any I/O. The path cannot be guessed or traversed — it is derived from a UUID, not from a user-supplied filename.
@@ -113,7 +113,7 @@ this.output.data({ nid: node.id }); }
 
 ## Security Properties
 
-**No path exposure.** The physical path {mfs_dir}/{VFS_ROOT_NODE}/{node_id}/ is UUID-based. It is never returned to the client and cannot be guessed.
+**No path exposure.** The physical path `{mfs_dir}/{VFS_ROOT_NODE}/{node_id}/` is UUID-based. It is never returned to the client and cannot be guessed.
 
 **Directory traversal prevention.** User input never enters a filesystem path construction. All access goes through mfs_access_node before any I/O.
 

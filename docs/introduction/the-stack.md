@@ -47,7 +47,7 @@ An abstraction layer over the host filesystem that stores file metadata in a dat
 
 - Everything is a **node** (UUID) in the media database table
 
-- Physical path: {mfs_dir}/{VFS_ROOT_NODE}/{node_id}/ — never exposed to users
+- Physical path: `{mfs_dir}/{VFS_ROOT_NODE}/{node_id}/` — never exposed to users
 
 - All operations via stored procedures — no raw SQL against MFS tables in service code
 
