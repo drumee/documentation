@@ -23,8 +23,17 @@ The server returns pure JSON. The LETC renderer on the client reads the JSON tre
 
 ## Example: A Simple UI Tree
 
-> { "kind": "container", "children": [ 	{ "kind": "heading", "content": "My Files", "level": 2 	}, 	{ "kind": "data-grid", "service": "mfs.list", "columns": ["filename", "filesize", "mtime"] 	} ] }
+```
 
+    { 
+        kind: "container",
+        "kids": [ 	
+            { "kind": "heading", "content": "My Files", "level": 2 	}, 	
+            { "kind": "data-grid", "service": "mfs.list", "columns": ["filename", "filesize", "mtime"] 	} 
+        ] 
+    }
+
+```
 
 The renderer looks up "kind": "data-grid" in the widget registry and instantiates the correct component with the provided properties. No server involvement beyond returning the initial JSON.
 
