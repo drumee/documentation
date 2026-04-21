@@ -1,8 +1,8 @@
-# **Widget Concept**
+# Widget Concept
 
 In Drumee, **everything is a widget**. Every screen, panel, list, button, and form element is a widget — identified by a kind string, built as a Backbone.Marionette class, and composed into JSON trees that the LETC engine renders.
 
-## **What Is a Widget?**
+## What Is a Widget?
 
 A widget is a self-contained UI module. It manages its own:
 
@@ -15,7 +15,7 @@ Each widget is defined by its kind — a unique string that points to a JavaScri
 
 Core widgets are defined in: https://github.com/drumee/ui-core/blob/main/letc/kind/seeds/static.js
 
-## **The Skeleton Concept**
+## The Skeleton Concept
 
 Instead of HTML templates, Drumee uses **pure JSON tree data** to describe the user interface. This JSON is called a **Skeleton**.
 
@@ -45,7 +45,7 @@ export default function(ui) {
 } 
 
 ```
- 
+
 
 The widget controller loads this skeleton via:
 
@@ -55,7 +55,7 @@ this.feed(require('./skeleton').default(this));
 
 ```
 
-## **Base Layout Widgets (Skeletons)**
+## Base Layout Widgets (Skeletons)
 
 The most important base widgets are the **Skeletons** container types:
 
@@ -67,11 +67,10 @@ The most important base widgets are the **Skeletons** container types:
 | Skeletons.Button.Svg | Button that triggers a UI service event |
 | Skeletons.Element | Generic DOM element with content |
 
- 
 
 Full API reference: [**https://drumee.github.io/api-reference/frontend-sdk/**](https://drumee.github.io/api-reference/frontend-sdk/) 
 
-## **The FIG Concept**
+## The FIG Concept
 
 FIG stands for **Family, Item, Group** — Drumee's solution to CSS namespace conflicts.
 
@@ -83,14 +82,12 @@ A widget's kind string is split on the _ character:
 
 These become CSS class prefixes via ui.fig:
 
-| // In a skeleton: className: `${ui.fig.family}__main`  	// → "form_work__main" className: `${ui.fig.group}__container`  // → "form__container" |
-| :---- |
+> // In a skeleton: className: `${ui.fig.family}__main` // → "form_work__main" className: `${ui.fig.group}__container`  // → "form__container"
 
- 
 
 This lets you define styles common to a group (form__*) while applying unique styles to a specific widget family (form_work__*) — without any CSS pollution between widgets.
 
-## **The Parts System (`sys_pn`)**
+## The Parts System (`sys_pn`)
 
 Drumee's sys_pn (system part name) solves the problem of accessing sub-widgets inside a DOM tree. Using document.getElementById returns only a DOM element — not the full widget with its data, API, and state.
 
@@ -103,17 +100,17 @@ sys_pn names a sub-widget so the parent can retrieve the entire widget object:
         sys_pn: "my-section",   
         uiHandler: [ui],
     })   // In controller — access and update it 
-    
+
     this.ensurePart("my-section").then((part) => {   
         part.feed(require("./skeleton/my-section").default(this)); 
     }); 
 
 ```
- 
+
 
 Part namespaces are scoped to the widget that declares partHandler — so the same sys_pn name can be used in different widgets without conflict.
 
-## **The Event System (`onUiEvent`)**
+## The Event System (`onUiEvent`)
 
 When a skeleton element is declared with service and uiHandler, user actions trigger onUiEvent on the parent widget:
 
@@ -135,13 +132,11 @@ onUiEvent(cmd, args = {}) {
     } 
 }
 
- 
 
 All user interactions flow through a single onUiEvent method — no scattered event listeners throughout the codebase.
 
- 
 
-## **Widget Lifecycle**
+## Widget Lifecycle
 
 // Widget mounted
 
@@ -150,11 +145,11 @@ All user interactions flow through a single onUiEvent method — no scattered ev
     ▼ Skeleton renders — named parts (sys_pn) become ready   	
     ▼ onPartReady(child, pn) — feed sub-skeletons into named parts   	
     ▼ User interacts → onUiEvent() → handle service
-    
+
 Small update → this.ensurePart("pn").then(p => p.feed(...))   	
 Full re-render → this.feed(skeleton(this)) |
 
-## **Widget Folder Structure**
+## Widget Folder Structure
 
 Every widget follows the same layout:
 
@@ -166,7 +161,3 @@ Every widget follows the same layout:
 │   └── index.scss	← All styles for this widget 
 └── index.js      	← Controller: state, services, event handling |
 ```
- 
-
-→ [Create Widget](../product-guide/create-widget.md) for a full step-by-step build guide
-

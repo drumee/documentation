@@ -7,7 +7,7 @@ The Drumee Starter Kit is a **self-contained local development environment** tha
 
 Unlike the Playground, the Starter Kit gives you direct access to the database, stored procedures, and all service internals. However this mode has some limitations, such virtual hosting or organization features.
 
-### **Prerequisites**
+### Prerequisites
 
 - Docker installed with your user added to the docker group
 
@@ -19,7 +19,7 @@ node --version
 
 # Must be v22.x.x or later
 
-### **Step 1 — Build the Docker Image**
+### Step 1 — Build the Docker Image
 
 The Starter Kit requires a locally built Docker image. Clone the docker-file repository and build from the starter-kit Dockerfile:
 
@@ -37,7 +37,7 @@ docker images | grep drumee/starter
 
 # Expected: drumee/starter local <id> <size>
 
-### **Step 2 — Clone and Configure the Starter Kit**
+### Step 2 — Clone and Configure the Starter Kit
 
 git clone git@github.com:drumee/starter-kit.git
 
@@ -53,7 +53,7 @@ After configure completes, open docker.yaml and verify the image tag matches wha
 
 image: drumee/starter:local
 
-### **Step 3 — Add a Local DNS Entry**
+### Step 3 — Add a Local DNS Entry
 
 The Starter Kit uses local.drumee as its domain. Add it to your host machine's /etc/hosts :
 
@@ -65,7 +65,7 @@ ping -c1 local.drumee
 
 # Expected: PING local.drumee (127.0.0.1)
 
-### **Step 4 — Start the Container**
+### Step 4 — Start the Container
 
 docker compose -f docker.yaml up -d
 
@@ -75,7 +75,7 @@ Verify the container is running:
 
 docker ps | grep starter-kit
 
-### **Step 5 — Configure the Server (First Time Only)**
+### Step 5 — Configure the Server (First Time Only)
 
 Run the configuration script inside the container. This initialises the database, creates the drumee-app MariaDB user, and generates server configuration files:
 
@@ -83,7 +83,7 @@ npm run server.configure
 
 This only needs to be run once. On subsequent starts, skip directly to Step 6.
 
-### **Step 6 — Start All Services**
+### Step 6 — Start All Services
 
 npm run server.start
 
@@ -95,7 +95,7 @@ docker exec starter-kit pm2 list
 
 All processes should show online status.
 
-### **Step 7 — Set the Admin Password**
+### Step 7 — Set the Admin Password
 
 Set the admin password directly via the MariaDB shell inside the container:
 
@@ -109,7 +109,7 @@ http://local.drumee:8080
 
 Log in with the admin email and the password you just set.
 
-### **Volume Structure**
+### Volume Structure
 
 The docker.yaml maps the following host directories into the container:
 
@@ -159,7 +159,7 @@ Start and configure scripts
 
 All persistent data (database, uploaded files) lives in storage/ on the host. The container can be recreated without losing data.
 
-### **Port Mapping**
+### Port Mapping
 
 **Host port**
 
@@ -184,7 +184,7 @@ HTTPS
 |  |  |  |
 |  |  |  |
 
-### **Restarting After a Machine Reboot**
+### Restarting After a Machine Reboot
 
 The container does not start automatically after a host reboot:
 
@@ -194,7 +194,7 @@ docker compose -f docker.yaml up -d
 
 npm run server.start
 
-### **Useful Commands**
+### Useful Commands
 
 # Open a shell inside the container
 
@@ -218,6 +218,6 @@ docker exec starter-kit mariadb yp -e \
 
 docker compose -f docker.yaml down
 
-### **How the Factory Daemon Works**
+### How the Factory Daemon Works
 
 The factory PM2 process pre-creates schema pools for new Hub and Drumate entities. On a fresh install it starts with a small pool and grows gradually toward the configured watermark (210 per type by default). The pool count increasing over the first few minutes after start is normal.

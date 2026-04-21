@@ -1,7 +1,7 @@
-# **Why Drumee?**
+# Why Drumee?
 
 Cloud tools are not neutral infrastructure.  
-They are multi-tenant systems by design \- which means your data is stored, processed, and governed inside infrastructure you do not control.
+They are multi-tenant systems by design - which means your data is stored, processed, and governed inside infrastructure you do not control.
 
 The tools your team uses today were not designed to give you control. They were designed to maximize retention inside someone else’s system. 
 
@@ -9,9 +9,9 @@ This is not a trade-off.
 
 It is the architecture.
 
-Drumee was designed differently \- to give control back.
+Drumee was designed differently - to give control back.
 
-## **The Hidden Cost of Cloud Convenience**
+## The Hidden Cost of Cloud Convenience
 
 Cloud tools solve real problems. Collaboration is easy. Access from anywhere. No server to maintain. These are genuine benefits.
 
@@ -28,27 +28,27 @@ But there is a cost most teams never audit:
 
 None of this is a bug in cloud tools. It is how they are designed to operate.
 
-## **Why Existing Alternatives Don't Solve It**
+## Why Existing Alternatives Don't Solve It
 
-### **"We use Nextcloud"**
+### "We use Nextcloud"
 
 Nextcloud is a solid self-hosted file sync server. It is not a unified OS-level system. Its permission model operates at the application layer. Its apps are bolted on. Its developer experience is fragmented. It solves *part* of the problem.
 
-### **"We use Google Drive with strong permissions"**
+### "We use Google Drive with strong permissions"
 
 Google Drive permissions control who inside Google's system can access your files. They do not change the fact that your data is on Google's infrastructure, under Google's terms, accessible to Google's systems. Permission settings do not equal sovereignty.
 
-### **"We use an on-premise server"**
+### "We use an on-premise server"
 
 A raw file server gives you data location control but none of the collaboration layer: no integrated chat, no granular ACL, no plugin system, no SDK to extend. You own the storage; you lose the usability.
 
-## **What Drumee Provides That Others Cannot**
+## What Drumee Provides That Others Cannot
 
-### **1\. Data at the Filesystem Level, Not the App Layer**
+### 1\. Data at the Filesystem Level, Not the App Layer
 
 Drumee's permission model is enforced at the microservice level — before data is accessed, not after the UI loads. This means there is no way to bypass permissions through interface manipulation or API abuse.
 
-### **2\. Workspace-Native Collaboration**
+### 2\. Workspace-Native Collaboration
 
 In every other tool, collaboration is layered on top of storage:
 
@@ -56,32 +56,31 @@ In every other tool, collaboration is layered on top of storage:
 
 In Drumee, every folder *is* a collaboration workspace. Files, chat, permissions, and activity log live in the same unit. No context switching. No data fragmented across platforms.
 
-### **3\. A System You Can Extend**
+### 3\. A System You Can Extend
 
-Drumee is not a closed product. It is infrastructure with a developer SDK. You can add plugins (document editing, diagram tools, workflow automation), build custom services, and create internal tools \-  all inheriting Drumee's security model automatically.
+Drumee is not a closed product. It is infrastructure with a developer SDK. You can add plugins (document editing, diagram tools, workflow automation), build custom services, and create internal tools -  all inheriting Drumee's security model automatically.
 
-### **4\. Zero Vendor Risk**
+### 4\. Zero Vendor Risk
 
 Self-hosted Drumee has no external dependencies for core function. If Drumee the company ceased to exist tomorrow, your self-hosted deployment would continue running indefinitely. Your data is on your server. Drumee is open-source (AGPLv3 license).
 
-## **The Business Case**
+## The Business Case
 
-For a 15-person team currently using Notion \+ Slack \+ Google Drive \+ a permissions tool:
+For a 15-person team currently using Notion + Slack + Google Drive + a permissions tool:
 
 | Tool | Typical monthly cost |
 | :---- | :---- |
-| Notion (Team) | \~$160/month |
-| Slack (Pro) | \~$225/month |
-| Google Workspace | \~$180/month |
-| Total | \~$565/month |
+| Notion (Team) | ~$160/month |
+| Slack (Pro) | ~$225/month |
+| Google Workspace | ~$180/month |
+| Total | ~$565/month |
 
- 
 
-**Drumee self-hosted on a standard VPS:** \~$30–50/month in infrastructure costs.
+**Drumee self-hosted on a standard VPS:** ~$30–50/month in infrastructure costs.
 
-**Annual saving: \~$6,000–6,400.** Plus data sovereignty. Plus compliance alignment. Plus zero vendor lock-in.
+**Annual saving: ~$6,000–6,400.** Plus data sovereignty. Plus compliance alignment. Plus zero vendor lock-in.
 
-## **When Drumee Is the Right Choice**
+## When Drumee Is the Right Choice
 
 ✅ You handle client or patient data that must stay within your control
 
@@ -95,7 +94,7 @@ For a 15-person team currently using Notion \+ Slack \+ Google Drive \+ a permis
 
 ✅ You want a developer-extensible platform, not a locked SaaS feature roadmap
 
-## **When Drumee May Not Be the Right Choice (Yet)**
+## When Drumee May Not Be the Right Choice (Yet)
 
 ⚠️ You need a fully managed, zero-administration workspace with no server responsibility
 

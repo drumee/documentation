@@ -1,10 +1,10 @@
-# **LETC Engine**
+# LETC Engine
 
 LETC — **Limitlessly Extensible Tree Components** — is Drumee's declarative UI rendering engine. Instead of generating HTML on the server or shipping a compiled JavaScript bundle, Drumee describes user interfaces as JSON trees that the client renders locally using a registry of widget components.
 
-Try LETC live in the sandbox → **https://drumee.in/-/\#/sandbox**
+Try LETC live in the sandbox → **https://drumee.in/-/#/sandbox**
 
-## **The Problem with Conventional Approaches**
+## The Problem with Conventional Approaches
 
 Most web frameworks face a structural conflict: HTML is a server-side language by design, yet the user interface is a client-side concern.
 
@@ -12,71 +12,75 @@ Most web frameworks face a structural conflict: HTML is a server-side language b
 
 **Pattern B — JavaScript bundles.** A framework like React generates a large JS bundle that constructs the DOM on the client. This solves server-rendering but still mixes frontend concerns into the build step. Bundles grow large, hot-reload cycles are slow, and extending the UI requires recompilation.
 
-## **The LETC Approach**
+## The LETC Approach
 
 LETC decouples UI definition from both server logic and client compilation.
 
-| Server → pure JSON data → LETC Renderer (client) → DOM |
-| :---- |
+> Server → pure JSON data → LETC Renderer (client) → DOM
 
- 
 
 The server returns pure JSON. The LETC renderer on the client reads the JSON tree, resolves each node to a registered widget component, and renders the interface. No HTML is generated server-side. No recompilation is needed to add or modify a widget.
 
-## **Example: A Simple UI Tree**
+## Example: A Simple UI Tree
 
-| {   "kind": "container",   "children": \[ 	{   	"kind": "heading",   	"content": "My Files",   	"level": 2 	}, 	{   	"kind": "data-grid",   	"service": "mfs.list",   	"columns": \["filename", "filesize", "mtime"\] 	}   \] } |
-| :---- |
+> { "kind": "container", "children": [ 	{ "kind": "heading", "content": "My Files", "level": 2 	}, 	{ "kind": "data-grid", "service": "mfs.list", "columns": ["filename", "filesize", "mtime"] 	} ] }
 
- 
 
 The renderer looks up "kind": "data-grid" in the widget registry and instantiates the correct component with the provided properties. No server involvement beyond returning the initial JSON.
 
-## **Built on Backbone \+ Marionette**
+## Built on Backbone \+ Marionette
 
 The LETC widget system is built on **Backbone** and **Backbone.Marionette**. Each widget is a Backbone.Marionette view class. This gives the system:
 
 * A proven, stable component lifecycle (initialize, onRender, onDomRefresh)  
 * Event delegation patterns via onUiEvent  
-* Part-based sub-view management via sys\_pn named regions  
+* Part-based sub-view management via sys_pn named regions  
 * No framework-specific compilation step — plain JavaScript modules
 
 Widget kinds are registered via JavaScript class definitions, not a custom DSL or framework-specific syntax.
 
-## **Key Properties**
+## Key Properties
 
-### **No Hard-Coded Routes**
+### No Hard-Coded Routes
 
 The LETC engine does not bind UI views to URL paths. Navigation is driven by the JSON tree itself. A node can declare a service call that fetches and replaces the current tree fragment, enabling SPA-style navigation without a router configuration file.
 
-### **Extensibility via Widget Registry**
+### Extensibility via Widget Registry
 
 Any developer can register custom widget kinds. The registry maps "kind": "my-widget" to a class implementation. This makes Drumee UI fully extensible without modifying the core engine — the same model used in the backend where adding an ACL JSON entry exposes a new service.
 
-### **Permission-Aware Rendering**
+### Permission-Aware Rendering
 
 Because the JSON tree is assembled server-side from Drumee service calls, the server naturally omits nodes the current user does not have permission to see. The client never receives UI fragments it should not render — there is no client-side if (user.isAdmin) hiding.
 
-### **JSON-Only Communication**
+### JSON-Only Communication
 
 All data exchanged between LETC and the backend travels as JSON over the standard service endpoint (/-/svc/module.method). LETC makes no distinction between a "UI call" and a "data call" — they are the same mechanism, governed by the same ACL rules.
 
-## **Full Architecture Flow**
+## Full Architecture Flow
 
-| User interacts with a LETC component     	│     	▼ Component calls a Drumee service via /-/svc/     	│     	▼ Server validates ACL → executes service → returns JSON     	│     	▼ LETC merges response into current tree     	│     	▼ Only the affected subtree re-renders |
-| :---- |
+```text
+User interacts with a LETC component
+│
+▼ Component calls a Drumee service via /-/svc/
+│
+▼ Server validates ACL → executes service → returns JSON
+│
+▼ LETC merges response into current tree
+│
+▼ Only the affected subtree re-renders
+```
 
- 
 
 The server is a pure data processor. The client is a pure renderer. Neither knows about the other's implementation.
 
-## **Relationship to the Backend SDK**
+## Relationship to the Backend SDK
 
 From the backend's perspective, LETC is simply a consumer of the service API. The backend does not know or care that the caller is a LETC renderer rather than a mobile app or a CLI tool. The ACL system enforces access the same way regardless of caller.
 
 A backend developer adding a new service does not need to write any frontend code. Once the ACL entry and service method are in place, a LETC developer can immediately call it by referencing module.method in a widget's service property.
 
-→ \[Widget Concept\](widget-concept.md) for how widgets are built
+→ [Widget Concept](widget-concept.md) for how widgets are built
 
-→ \[Create Widget\](../product-guide/create-widget.md) for a step-by-step guide
+→ [Create Widget](../product-guide/create-widget.md) for a step-by-step guide
 
