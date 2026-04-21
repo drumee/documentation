@@ -36,7 +36,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          //routeBasePath: '/',  // Docs are at root of this deployment
+          routeBasePath: '/',  // Docs are at root of this deployment
           editUrl: 'https://github.com/drumee/documentation/tree/main/',
         },
       } satisfies Preset.Options,
@@ -52,7 +52,7 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'documentation',
+          sidebarId: 'docs',
           position: 'left',
           label: 'Documentation',
         },
