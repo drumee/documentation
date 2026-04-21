@@ -11,7 +11,7 @@ A widget is a self-contained UI module. It manages its own:
 * **Behaviour** — how it reacts to user actions, via onUiEvent  
 * **Styling** — its own SCSS skin
 
-Each widget is defined by its kind — a unique string that points to a JavaScript module in the widget registry. For example, a widget with kind: "form\_work" maps to the form\_work class.
+Each widget is defined by its kind — a unique string that points to a JavaScript module in the widget registry. For example, a widget with kind: "form_work" maps to the form_work class.
 
 Core widgets are defined in: https://github.com/drumee/ui-core/blob/main/letc/kind/seeds/static.js
 
@@ -23,15 +23,37 @@ As the application renders, the JSON tree is parsed to find every node with a ki
 
 Because skeletons are pure JSON data, they can change at runtime. That is the core extensibility mechanic.
 
-| // skeleton/index.js — a pure function returning a component tree import { Skeletons } from '@drumee/ui-core';   export default function(ui) {   return Skeletons.Box.Y({ 	className: \`${ui.fig.family}\_\_main\`, 	kids: \[   	Skeletons.Box.X({     	className: \`${ui.fig.family}\_\_header\`,     	kids: \[ /\* header widgets \*/ \]   	}),   	Skeletons.Box.Y({     	className: \`${ui.fig.family}\_\_content\`,     	sys\_pn: "content", 	// named part — accessible via this.ensurePart("content")     	uiHandler: \[ui\],   	}) 	\]   }); } |
-| :---- |
+```
 
+// skeleton/index.js — a pure function returning a component tree 
+import { Skeletons } from '@drumee/ui-core';   
+export default function(ui) {   
+    return Skeletons.Box.Y({ 	
+        className: `${ui.fig.family}__main`, 	
+        kids: [
+            Skeletons.Box.X({     	
+                className: `${ui.fig.family}__header`,     	
+                kids: [ /* header widgets */ ]   	
+            }),   	
+            Skeletons.Box.Y({     	
+                className: `${ui.fig.family}__content`,
+                sys_pn: "content", 	// named part — accessible via this.ensurePart("content")     	
+                uiHandler: [ui],   	
+            }) 	
+        ]   
+    }); 
+} 
+
+```
  
 
 The widget controller loads this skeleton via:
 
-| this.feed(require('./skeleton').default(this)); |
-| :---- |
+```
+
+this.feed(require('./skeleton').default(this)); 
+
+```
 
 ## **Base Layout Widgets (Skeletons)**
 
@@ -53,40 +75,65 @@ Full API reference: [**https://drumee.github.io/api-reference/frontend-sdk/**](h
 
 FIG stands for **Family, Item, Group** — Drumee's solution to CSS namespace conflicts.
 
-A widget's kind string is split on the \_ character:
+A widget's kind string is split on the _ character:
 
-* **Group** \= first part (e.g. form)  
-* **Item** \= last part (e.g. work)  
-* **Family** \= full string (e.g. form\_work)
+* **Group** = first part (e.g. form)  
+* **Item** = last part (e.g. work)  
+* **Family** = full string (e.g. form_work)
 
 These become CSS class prefixes via ui.fig:
 
-| // In a skeleton: className: \`${ui.fig.family}\_\_main\`  	// → "form\_work\_\_main" className: \`${ui.fig.group}\_\_container\`  // → "form\_\_container" |
+| // In a skeleton: className: `${ui.fig.family}__main`  	// → "form_work__main" className: `${ui.fig.group}__container`  // → "form__container" |
 | :---- |
 
  
 
-This lets you define styles common to a group (form\_\_\*) while applying unique styles to a specific widget family (form\_work\_\_\*) — without any CSS pollution between widgets.
+This lets you define styles common to a group (form__*) while applying unique styles to a specific widget family (form_work__*) — without any CSS pollution between widgets.
 
-## **The Parts System (\`sys\_pn\`)**
+## **The Parts System (`sys_pn`)**
 
-Drumee's sys\_pn (system part name) solves the problem of accessing sub-widgets inside a DOM tree. Using document.getElementById returns only a DOM element — not the full widget with its data, API, and state.
+Drumee's sys_pn (system part name) solves the problem of accessing sub-widgets inside a DOM tree. Using document.getElementById returns only a DOM element — not the full widget with its data, API, and state.
 
-sys\_pn names a sub-widget so the parent can retrieve the entire widget object:
+sys_pn names a sub-widget so the parent can retrieve the entire widget object:
 
-| // In skeleton — name a sub-region Skeletons.Box.Y({   sys\_pn: "my-section",   uiHandler: \[ui\], })   // In controller — access and update it this.ensurePart("my-section").then((part) \=\> {   part.feed(require("./skeleton/my-section").default(this)); }); |
-| :---- |
+````
 
+// In skeleton — name a sub-region 
+    Skeletons.Box.Y({   
+        sys_pn: "my-section",   
+        uiHandler: [ui],
+    })   // In controller — access and update it 
+    
+    this.ensurePart("my-section").then((part) => {   
+        part.feed(require("./skeleton/my-section").default(this)); 
+    }); 
+
+```
  
 
-Part namespaces are scoped to the widget that declares partHandler — so the same sys\_pn name can be used in different widgets without conflict.
+Part namespaces are scoped to the widget that declares partHandler — so the same sys_pn name can be used in different widgets without conflict.
 
-## **The Event System (\`onUiEvent\`)**
+## **The Event System (`onUiEvent`)**
 
 When a skeleton element is declared with service and uiHandler, user actions trigger onUiEvent on the parent widget:
 
-| // In skeleton — attach a service trigger Skeletons.Button.Svg({   className: \`${ui.fig.family}\_\_submit\`,   service: "create-item",   uiHandler: \[ui\], })   // In controller — handle it async onUiEvent(cmd, args \= {}) {   const service \= args.service || cmd.get(\_a.service);     switch (service) { 	case "create-item":   	await this.createItem();   	break; 	case "close":   	this.goodbye();   	break;   } } |
-| :---- |
+```
+
+// In skeleton — attach a service trigger 
+Skeletons.Button.Svg({   className: `${ui.fig.family}__submit`,   service: "create-item",   uiHandler: [ui], })
+
+// In controller — handle it async 
+onUiEvent(cmd, args = {}) {
+    const service = args.service || cmd.get(_a.service);     
+    switch (service) { 	
+        case "create-item":   	
+            await this.createItem();   	
+            break; 	
+        case "close":   	
+            this.goodbye();   	
+        break;   
+    } 
+}
 
  
 
@@ -96,17 +143,30 @@ All user interactions flow through a single onUiEvent method — no scattered ev
 
 ## **Widget Lifecycle**
 
-| Widget mounted   	│   	▼ initialize() — declare state, no rendering   	│   	▼ onDomRefresh() — load data, call this.feed(skeleton(this))   	│   	▼ Skeleton renders — named parts (sys\_pn) become ready   	│   	▼ onPartReady(child, pn) — feed sub-skeletons into named parts   	│   	▼ User interacts → onUiEvent() → handle service   	│   	├── Small update → this.ensurePart("pn").then(p \=\> p.feed(...))   	└── Full re-render → this.feed(skeleton(this)) |
-| :---- |
+// Widget mounted
+
+   	▼ initialize() — declare state, no rendering   	
+    ▼ onDomRefresh() — load data, call this.feed(skeleton(this))
+    ▼ Skeleton renders — named parts (sys_pn) become ready   	
+    ▼ onPartReady(child, pn) — feed sub-skeletons into named parts   	
+    ▼ User interacts → onUiEvent() → handle service
+    
+Small update → this.ensurePart("pn").then(p => p.feed(...))   	
+Full re-render → this.feed(skeleton(this)) |
 
 ## **Widget Folder Structure**
 
 Every widget follows the same layout:
 
-| my-widget/ ├── skeleton/ │   ├── index.js  	← Root layout (what the widget looks like) │   └── ...       	← Sub-skeletons for sections or pages ├── skin/ │   └── index.scss	← All styles for this widget └── index.js      	← Controller: state, services, event handling |
-| :---- |
-
+```
+| my-widget/ 
+├── skeleton/ 
+│   ├── index.js  	← Root layout (what the widget looks like) 
+│   └── ...       	← Sub-skeletons for sections or pages ├── skin/ 
+│   └── index.scss	← All styles for this widget 
+└── index.js      	← Controller: state, services, event handling |
+```
  
 
-→ \[Create Widget\](../product-guide/create-widget.md) for a full step-by-step build guide
+→ [Create Widget](../product-guide/create-widget.md) for a full step-by-step build guide
 
