@@ -17,7 +17,7 @@ Frontend Request
 │
 ▼ Check caller's privilege level
 │
-├── Privilege & Required? → Execute Service → Return Result
+├── Privilege >= Required? → Execute Service → Return Result
 │
 └── No → 403 Forbidden
 ```
@@ -60,22 +60,22 @@ The vast majority of services use hub. Some use public only for endpoints explic
 
 Each module has a corresponding JSON file in the acl/ directory. The file declares every service the module exposes, its permission requirements, and the implementation path.
 
-```
-{ "services": 
-    { 	
-        "service_name": { 
-            "scope": "hub",
-            "permission": { 
-                "src": "write" 
-            }, 
-            "log": true 	
-        }
-    }, 
-    "modules": { 
-        "private": "service/private/module_name" 
-    } 
+```json
+{
+  "services": {
+    "service_name": {
+      "scope": "hub",
+      "permission": {
+        "src": "write"
+      },
+      "log": true
+    }
+  },
+  "modules": {
+    "private": "service/private/module_name"
+  }
 }
-````
+```
 
 ### Fields Reference
 
@@ -86,7 +86,7 @@ Each module has a corresponding JSON file in the acl/ directory. The file declar
 | permission.fast_check | No | Additional runtime check before execution (e.g. user_permission, public-api) |
 | method | No | Maps the service name to a differently named JavaScript method |
 | log | No | When true, the service call is written to the audit log |
-| preproc | No | Pre-processing config (e.g. file upload handling: { "checker": "upload" }) |
+| preproc | No | Pre-processing config (e.g. file upload handling: `{"checker": "upload"}`) |
 | modules.private | No | Path to the private (authenticated) service implementation |
 | modules.public | No | Path to the public (unauthenticated) service implementation |
 
@@ -112,9 +112,9 @@ Some services require a contextual check beyond the static permission level.
 | user_permission | Verifies the user holds the required privilege on the specific MFS node being accessed — not just on the Hub in general. Used for services that operate on individual files or folders. |
 | public-api | Allows the service to be called without a full authenticated session, for token-based or guest access. |
 
-```
+```json
 "permission": { "src": "read", "fast_check": "user_permission" }
-````
+```
 
 ## Method Aliases
 
@@ -142,31 +142,33 @@ Two steps only — no route registration, no middleware wiring.
 
 **1. Implement the method in the service directory:**
 
-```bash
-// service/private/mymodule.js async my_action() {
-const id = this.input.need('id');
-const result = await this.db.await_proc('my_proc', id);
-this.output.data(result); }
+```javascript
+// service/private/mymodule.js
+async my_action() {
+  const id = this.input.need('id');
+  const result = await this.db.await_proc('my_proc', id);
+  this.output.data(result);
+}
 ```
 
 
 **2. Declare it in the ACL file:**
 
-```
-{ 
-    "services": { 	
-        "my_action": { 
-            "scope": "hub", 
-            "permission": { 
-                "src": "write" 
-            } 	
-        }
-    }, 
-    "modules": { 	
-        "private": "service/private/mymodule" 
-    } 
+```json
+{
+  "services": {
+    "my_action": {
+      "scope": "hub",
+      "permission": {
+        "src": "write"
+      }
+    }
+  },
+  "modules": {
+    "private": "service/private/mymodule"
+  }
 }
-````
+```
 
 ## Security Properties
 
