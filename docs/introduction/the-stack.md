@@ -31,7 +31,7 @@ Drumee's product is structured in three distinct layers, each serving a differen
 
 ## The Four Technical Pillars
 
-### 1\. Identity & Access Control (ACL)
+### 1. Identity & Access Control (ACL)
 
 A bitwise, Linux-inspired permission model enforced at the microservice level — before any service code executes.
 
@@ -41,7 +41,7 @@ A bitwise, Linux-inspired permission model enforced at the microservice level �
 * ACL declared in JSON files — no route registration, no middleware wiring  
   → [ACL System](../technology/acl-system.md)
 
-### 2\. Meta File System (MFS)
+### 2. Meta File System (MFS)
 
 An abstraction layer over the host filesystem that stores file metadata in a database and physical content at content-addressed paths.
 
@@ -57,7 +57,7 @@ An abstraction layer over the host filesystem that stores file metadata in a dat
 
 - → [MFS Architecture](../technology/mfs-architecture.md)
 
-### 3\. LETC Engine (JSON-Based UI)
+### 3. LETC Engine (JSON-Based UI)
 
 A declarative UI rendering engine where interfaces are defined as JSON trees, not HTML templates or compiled bundles.
 
@@ -73,7 +73,7 @@ A declarative UI rendering engine where interfaces are defined as JSON trees, no
 
 - → [LETC Engine](../technology/letc-engine.md)
 
-### 4\. Plugin Architecture
+### 4. Plugin Architecture
 
 A hot-reloadable extension system that lets developers add new backend services and frontend widgets without modifying the core codebase.
 

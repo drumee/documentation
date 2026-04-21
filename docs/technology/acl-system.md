@@ -60,7 +60,22 @@ The vast majority of services use hub. Some use public only for endpoints explic
 
 Each module has a corresponding JSON file in the acl/ directory. The file declares every service the module exposes, its permission requirements, and the implementation path.
 
-> { "services": { 	"service_name": { "scope": "hub", "permission": { "src": "write" }, "log": true 	} }, "modules": { 	"private": "service/private/module_name" } }
+```
+{ "services": 
+    { 	
+        "service_name": { 
+            "scope": "hub",
+            "permission": { 
+                "src": "write" 
+            }, 
+            "log": true 	
+        }
+    }, 
+    "modules": { 
+        "private": "service/private/module_name" 
+    } 
+}
+````
 
 ### Fields Reference
 
