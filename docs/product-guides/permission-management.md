@@ -160,7 +160,7 @@ The matrix shows:
 
 Click **Export** to download the workspace's full ACL JSON — useful for compliance documentation and audits.
 
-→ [ACL JSON Specification](../technology/sdk-reference/acl-json-spec.md)
+→ [ACL JSON Specification](../api-reference/acl-spec.md)
 
 
 ## The Audit Trail
@@ -202,7 +202,7 @@ workspace_id: 'ws-456' });
 ```
 
 
-→ [ACL API Reference](../technology/sdk-reference/backend-sdk.md)
+→ [ACL API Reference](../api-reference/backend-sdk/index.md)
 
 ## Permission Best Practices
 

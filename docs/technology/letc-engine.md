@@ -91,5 +91,5 @@ A backend developer adding a new service does not need to write any frontend cod
 
 → [Widget Concept](widget-concept.md) for how widgets are built
 
-→ [Create Widget](../product-guide/create-widget.md) for a step-by-step guide
+→ [Create Widget](../product-guides/creating-widget.md) for a step-by-step guide
 

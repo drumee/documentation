@@ -70,7 +70,7 @@ The rendering layer. UI is defined as JSON trees, not server-generated HTML. Thi
 
 The developer layer. A single SDK that covers frontend widget development, backend service creation, filesystem API access, and database integration. One language, one paradigm, full system access.
 
-→ [SDK Reference](sdk-reference/README.md)
+→ [SDK Reference](../api-reference/backend-sdk/index.md)
 
 ## Key Architectural Properties
 

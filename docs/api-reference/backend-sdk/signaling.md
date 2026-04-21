@@ -130,6 +130,6 @@ https://hostname/-/svc/signaling.dial
 
 ## Related Documentation
 
-- [ACL System](docs/concepts/acl-system.md) - Permission model
-- [Service Routing](docs/concepts/service-routing.md) - URL patterns
-- [Error Handling](docs/guides/error-handling.md) - Error codes
+- [ACL System](../../technology/acl-system.md) - Permission model
+- Service Routing - URL patterns
+- Error Handling - Error codes

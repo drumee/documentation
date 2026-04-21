@@ -17,7 +17,7 @@ Frontend Request
 │
 ▼ Check caller's privilege level
 │
-├── Privilege >= Required? → Execute Service → Return Result
+├── Privilege & Required? → Execute Service → Return Result
 │
 └── No → 403 Forbidden
 ```
@@ -103,7 +103,7 @@ Each module has a corresponding JSON file in the acl/ directory. The file declar
 
 Use the minimum necessary privilege. Never use owner when write is sufficient.
 
-## The \`fast\_check\` Mechanism
+## The `fast_check` Mechanism
 
 Some services require a contextual check beyond the static permission level.
 
@@ -140,7 +140,7 @@ All backend services are accessed through a single entry point. There are no har
 
 Two steps only — no route registration, no middleware wiring.
 
-**1\. Implement the method in the service directory:**
+**1. Implement the method in the service directory:**
 
 ```bash
 // service/private/mymodule.js async my_action() {
@@ -150,9 +150,23 @@ this.output.data(result); }
 ```
 
 
-**2\. Declare it in the ACL file:**
+**2. Declare it in the ACL file:**
 
-> { "services": { 	"my_action": { "scope": "hub", "permission": { "src": "write" } 	} }, "modules": { 	"private": "service/private/mymodule" } }
+```
+{ 
+    "services": { 	
+        "my_action": { 
+            "scope": "hub", 
+            "permission": { 
+                "src": "write" 
+            } 	
+        }
+    }, 
+    "modules": { 	
+        "private": "service/private/mymodule" 
+    } 
+}
+````
 
 ## Security Properties
 

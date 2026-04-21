@@ -73,5 +73,5 @@ Complete documentation for all Drumee Frontend services.
 ## Need Help?
 
 - Check [Troubleshooting Guide](../../resources/troubleshooting.md)
-- Review [Common Patterns](../../guides/common-patterns.md)
-- See [Example Implementations](../../examples/)
+- Review Common Patterns
+- See Example Implementations
