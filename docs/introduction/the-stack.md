@@ -79,7 +79,7 @@ A hot-reloadable extension system that lets developers add new backend services 
 
 - Plugins follow the same ACL + Entity pattern as built-in modules
 
-- Scoped to a specific endpoint: /-/<endpoint>/svc/module.method
+- Scoped to a specific endpoint: /-/*endpoint*/svc/module.method
 
 - Hot-reload via Acl.loadPlugins(true) — no server restart required
 

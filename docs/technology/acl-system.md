@@ -112,15 +112,17 @@ Some services require a contextual check beyond the static permission level.
 | user_permission | Verifies the user holds the required privilege on the specific MFS node being accessed — not just on the Hub in general. Used for services that operate on individual files or folders. |
 | public-api | Allows the service to be called without a full authenticated session, for token-based or guest access. |
 
-
-> "permission": { "src": "read", "fast_check": "user_permission" }
+```
+"permission": { "src": "read", "fast_check": "user_permission" }
+````
 
 ## Method Aliases
 
 When the ACL service name differs from the JavaScript method name, use the method field:
 
-> "show_tag_by": { "scope": "hub", "permission": { "src": "owner" }, "method": "tag_get_next" }
-
+```
+"show_tag_by": { "scope": "hub", "permission": { "src": "owner" }, "method": "tag_get_next" }
+```
 
 The client calls tagcontact.show_tag_by. The server dispatches to the tag_get_next() method.
 
