@@ -201,7 +201,9 @@ grep -n "BASE\|dist:latest" drumee.yaml
 For the browser to resolve `local.drumee`, add it to the host machine's `/etc/hosts`:
 
 ```bash
-echo "127.0.0.1 local.drumee" | sudo tee -a /etc/hosts
+echo "127.0.0.1 local.drumee" |
+sudo tee -a
+/etc/hosts
 ```
 
 ### Step 8 — Start the container

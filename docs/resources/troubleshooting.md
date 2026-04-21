@@ -195,7 +195,8 @@ WHERE category = 'folder'
 
 **Solution:** Verify the credential file exists at the expected path inside the container:
 ```bash
-cat /etc/drumee/credentials/<service>/info.json
+cat
+/etc/drumee/credentials/<service>/info.json
 ```
 Do not store credentials in `.env` files or code — only in `/etc/drumee/credentials/`.
 

@@ -1,8 +1,8 @@
-# **Permission Management**
+# Permission Management
 
 Drumee's permission system is the foundation of everything. This guide covers how to manage permissions as an administrator, how to share workspaces with internal and external collaborators, and how to audit who has access to what.
 
-## **Core Concepts (Recap)**
+## Core Concepts (Recap)
 
 Permissions in Drumee work at three levels:
 
@@ -14,7 +14,7 @@ Permissions in Drumee work at three levels:
 
 All permission checks happen at the microservice level — before any data operation — so there is no application-layer way to bypass them.
 
-## **Roles at a Glance**
+## Roles at a Glance
 
 | Role | View | Download | Upload/Edit | Delete | Manage Permissions |
 | :---- | :---- | :---- | :---- | :---- | :---- |
@@ -23,9 +23,9 @@ All permission checks happen at the microservice level — before any data opera
 | **Viewer** | ✅ | Configurable | ❌ | ❌ | ❌ |
 | **External (link)** | Scoped | Scoped | Scoped | ❌ | ❌ |
 
-## **Managing Workspace Members**
+## Managing Workspace Members
 
-### **Inviting a Team Member**
+### Inviting a Team Member
 
 4\. 	Open the workspace
 
@@ -39,7 +39,7 @@ All permission checks happen at the microservice level — before any data opera
 
 The user receives a notification. If they do not have a Drumee account, they receive an email with a sign-up link. On sign-up, they are automatically granted the assigned role in the workspace.
 
-### **Changing a Role**
+### Changing a Role
 
 9\. 	Open the **Members** panel
 
@@ -49,7 +49,7 @@ The user receives a notification. If they do not have a Drumee account, they rec
 
 12\.  The change takes effect immediately — the user's next request is evaluated with the updated role
 
-### **Removing a Member**
+### Removing a Member
 
 13\.  Open the **Members** panel
 
@@ -59,13 +59,13 @@ The user receives a notification. If they do not have a Drumee account, they rec
 
 Removing a user revokes their access immediately. Any files they uploaded remain in the workspace. Audit log entries from their actions are preserved.
 
-## **File-Level Permission Overrides**
+## File-Level Permission Overrides
 
 Use file overrides when a specific file needs a different permission than the workspace default.
 
 **Example use case:** A workspace is shared with an Editor team, but one confidential file should be Viewer-only for a specific person.
 
-### **Setting a File Override**
+### Setting a File Override
 
 16\.  Right-click a file (or click **⋮** next to it)
 
@@ -79,15 +79,15 @@ Use file overrides when a specific file needs a different permission than the wo
 
 The override applies to that file only. The user retains their workspace role on all other files.
 
-### **Viewing Active Overrides**
+### Viewing Active Overrides
 
 In the file's **Manage permissions** panel, all active overrides are listed with the user, role, who granted it, and when. Admins can view and modify any override.
 
-## **External Sharing (Share Links)**
+## External Sharing (Share Links)
 
 Share links give external collaborators scoped access without requiring a Drumee account.
 
-### **Creating a Share Link**
+### Creating a Share Link
 
 21\.  Right-click a workspace or file
 
@@ -102,33 +102,32 @@ Share links give external collaborators scoped access without requiring a Drumee
 | **Password** | Optional — recipient must enter this before accessing |
 | **Max uses** | Optional — link deactivates after N accesses |
 
- 
 
 24\.  Click **Generate link**
 
 25\.  Copy the link or send it directly via the email option
 
-### **What the Recipient Sees**
+### What the Recipient Sees
 
 The recipient opens the link and sees the workspace or file — with only the operations you permitted visible. They can view and interact with content, participate in the workspace chat, and (if upload is permitted) add files.
 
 At the bottom of the shared view: a clear CTA to create their own sovereign workspace.
 
-### **Managing Active Links**
+### Managing Active Links
 
 In the workspace **Share** panel, all active links are listed with:
 
-•   	Operations permitted
+- Operations permitted
 
-•   	Expiry date
+- Expiry date
 
-•   	Number of times accessed
+- Number of times accessed
 
-•   	Whether password-protected
+- Whether password-protected
 
 To revoke a link: click **Revoke** next to it. The link becomes inactive immediately — anyone who clicks it sees an "Access revoked" message.
 
-### **Time-Limited Role Grants**
+### Time-Limited Role Grants
 
 For users with a Drumee account, you can grant a role with an automatic expiry — useful for contractors or temporary collaborators:
 
@@ -140,11 +139,11 @@ For users with a Drumee account, you can grant a role with an automatic expiry �
 
 29\.  The user receives a notification when access expires
 
-## **The Permissions Panel (Admin View)**
+## The Permissions Panel (Admin View)
 
 Admins have access to a full permissions matrix for any workspace.
 
-### **Accessing the Permissions Matrix**
+### Accessing the Permissions Matrix
 
 30\.  Open the workspace
 
@@ -157,15 +156,14 @@ The matrix shows:
 * All active share links with usage statistics  
 * Full audit log for all permission changes
 
-### **Exporting the Permissions Matrix**
+### Exporting the Permissions Matrix
 
 Click **Export** to download the workspace's full ACL JSON — useful for compliance documentation and audits.
 
-→ \[ACL JSON Specification\](../technology/sdk-reference/acl-json-spec.md)
+→ [ACL JSON Specification](../technology/sdk-reference/acl-json-spec.md)
 
- 
 
-## **The Audit Trail**
+## The Audit Trail
 
 Every permission-related action is logged and cannot be modified or deleted:
 
@@ -179,9 +177,8 @@ Every permission-related action is logged and cannot be modified or deleted:
 | Share link accessed | Token used, source IP, timestamp |
 | Share link revoked | Revoked by, timestamp |
 
- 
 
-### **Viewing the Audit Log**
+### Viewing the Audit Log
 
 32\.  Open the workspace **Settings** → **Permissions** → **Audit Log**
 
@@ -189,18 +186,25 @@ Every permission-related action is logged and cannot be modified or deleted:
 
 34\.  Export as CSV for external compliance systems
 
-## **Managing Permissions via the SDK**
+## Managing Permissions via the SDK
 
 For automated workflows and integrations, permissions can be managed programmatically:
 
-| // Grant a role await this.acl.setRole('user-789', 'ws-456', 'editor');   // Create a share link const link \= await this.acl.createShareLink('ws-456', {   operations: \['view', 'download'\],   expiry: '2026-06-01',   password: 'secure-pass' });   // Revoke access await this.acl.revokeAccess('user-789', 'ws-456');   // Get the full permissions matrix const matrix \= await this.db.exec('get\_permissions\_matrix', {   workspace\_id: 'ws-456' }); |
-| :---- |
+```bash
+// Grant a role await this.acl.setRole('user-789', 'ws-456', 'editor');
+// Create a share link const link = await this.acl.createShareLink('ws-456', {
+operations: ['view', 'download'],
+expiry: '2026-06-01',
+password: 'secure-pass' });
+// Revoke access await this.acl.revokeAccess('user-789', 'ws-456');
+// Get the full permissions matrix const matrix = await this.db.exec('get_permissions_matrix', {
+workspace_id: 'ws-456' });
+```
 
- 
 
-→ \[ACL API Reference\](../technology/sdk-reference/backend-sdk.md)
+→ [ACL API Reference](../technology/sdk-reference/backend-sdk.md)
 
-## **Permission Best Practices**
+## Permission Best Practices
 
 **Default to Viewer, escalate deliberately**
 

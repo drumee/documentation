@@ -1,11 +1,10 @@
-# **Our Story**
+# Our Story
 
 Drumee was created by Somanos Sar — driven by a belief that data ownership should belong to users, not platforms.
 
-| *"The reason I created Drumee was that I was upset by the fact that users lost control of their data. And it still upsets me."* — Somanos Sar, Founder |
-| :---- |
+> *"The reason I created Drumee was that I was upset by the fact that users lost control of their data. And it still upsets me."* — Somanos Sar, Founder
 
-## **The Moment It Started**
+## The Moment It Started
 
 The trigger was simple and universal: you store files on Apple Cloud, and they belong to Apple. Not to you. Apple's infrastructure. Apple's terms. Apple's access.
 
@@ -15,7 +14,7 @@ Most users never think about it — until a breach, a shutdown, a price increase
 
 Somanos decided to build the alternative.
 
-## **What Was Built**
+## What Was Built
 
 Drumee started as a technical problem: *how do you give someone full control over a web-based workspace without relying on any external infrastructure?*
 
@@ -27,9 +26,9 @@ The answer required building from the ground up:
 * A **unified SDK** so developers can extend the system without rebuilding its foundations  
 * A **plugin system** so capabilities can grow without compromising the core
 
-The result is not another SaaS tool. It is an OS-like infrastructure system for the web \- designed to adapt to your workflows, your deployment model, and your control requirements.
+The result is not another SaaS tool. It is an OS-like infrastructure system for the web - designed to adapt to your workflows, your deployment model, and your control requirements.
 
-## **The Principle That Drives Everything**
+## The Principle That Drives Everything
 
 Drumee's Terms of Use contain no clause that gives Drumee ownership of user data. No lock-in. No harvesting. No processing of your files for advertising or AI training.
 
@@ -37,7 +36,7 @@ This is not a marketing claim. It is a structural commitment — enforced by arc
 
 On the self-hosted plan, Drumee (the company) cannot access your data. Technically impossible. That is the point.
 
-## **Where We Are Today**
+## Where We Are Today
 
 **Drumee follows a dual-path strategy — starting with SaaS, ending in sovereignty.**
 
@@ -52,15 +51,12 @@ On the self-hosted plan, Drumee (the company) cannot access your data. Technical
 
 Every improvement we make is focused on one goal: making the transition from convenience to control the most natural decision a team can take.
 
-## **The Mission**
+## The Mission
 
-| We are redefining digital ownership by transforming file systems into collaborative, extensible workspaces — where data is not just stored, but activated, shared, and evolved. |
-| :---- |
+> We are redefining digital ownership by transforming file systems into collaborative, extensible workspaces — where data is not just stored, but activated, shared, and evolved.
 
- 
 
 This is not a productivity tool company. This is an infrastructure company with a conviction:
 
 **Your data should belong to you. Not to the platform you pay to use it on.**
 
-   
