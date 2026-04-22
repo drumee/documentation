@@ -6,7 +6,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Welcome to Drumee Documentation',
-  tagline: 'Meta Operating System for Sovereign Web Applications',
+  tagline: 'Built to be yours, designed to be shared.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
