@@ -57,7 +57,7 @@ const config: Config = {
           label: 'Documentation',
         },
         {
-          href: 'https://drumee.github.io',
+          href: 'https://drumee.github.io/documentation',
           label: '← Back to Home',
           position: 'right',
         },
