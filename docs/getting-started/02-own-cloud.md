@@ -341,7 +341,7 @@ Do not store credentials in `.env` files — they risk accidental git commits.
 
 ## See Also
 
-- [Playground](./playground.md) — try the API without installing anything
-- [Plugins](./plugins.md) — extend Drumee with custom backend services
+- [Playground](./03-playground.md) — try the API without installing anything
+- [Plugins](./04-plugins.md) — extend Drumee with custom backend services
 - [ACL System](../concepts/acl-system.md) — how service permissions are configured
 - [Stored Procedures](../api-reference/stored-procedures.md) — database calling conventions

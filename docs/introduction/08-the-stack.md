@@ -45,7 +45,7 @@ A bitwise, Linux-inspired permission model enforced at the microservice level �
 * Numeric privilege levels: anonymous (0), read (2), write (4), admin (6), owner (7)  
 * Permission check happens before service dispatch — no application-layer bypass possible  
 * ACL declared in JSON files — no route registration, no middleware wiring  
-  → [ACL System](../technology/acl-system.md)
+  → [ACL System](../technology/02-acl-system.md)
 
 ### 2. Meta File System (MFS)
 
@@ -61,7 +61,7 @@ An abstraction layer over the host filesystem that stores file metadata in a dat
 
 - Permission enforcement at the node level, not just the hub level
 
-- → [MFS Architecture](../technology/mfs-architecture.md)
+- → [MFS Architecture](../technology/03-mfs-architecture.md)
 
 ### 3. LETC Engine (JSON-Based UI)
 
@@ -77,7 +77,7 @@ A declarative UI rendering engine where interfaces are defined as JSON trees, no
 
 - UI is permission-filtered at source: the server omits nodes the user cannot see
 
-- → [LETC Engine](../technology/letc-engine.md)
+- → [LETC Engine](../technology/04-letc-engine.md)
 
 ### 4. Plugin Architecture
 
@@ -91,7 +91,7 @@ A hot-reloadable extension system that lets developers add new backend services 
 
 - Full API reference: https://drumee.github.io/api-reference/frontend-sdk/
 
-- → [Plugins](../getting-started/plugins.md)
+- → [Plugins](../getting-started/04-plugins.md)
 
 ## Runtime Architecture
 

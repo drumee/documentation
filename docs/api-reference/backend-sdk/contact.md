@@ -1165,6 +1165,6 @@ https://hostname/-/svc/contact.show_members
 
 ## Related Documentation
 
-- [ACL System](../../technology/acl-system.md) - Permission model
+- [ACL System](../../technology/02-acl-system.md) - Permission model
 - Service Routing - URL patterns
 - Error Handling - Error codes

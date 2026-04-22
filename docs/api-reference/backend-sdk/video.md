@@ -123,6 +123,6 @@ https://hostname/-/svc/video.stream
 
 ## Related Documentation
 
-- [ACL System](../../technology/acl-system.md) - Permission model
+- [ACL System](../../technology/02-acl-system.md) - Permission model
 - Service Routing - URL patterns
 - Error Handling - Error codes

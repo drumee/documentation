@@ -95,7 +95,7 @@ From the backend's perspective, LETC is simply a consumer of the service API. Th
 
 A backend developer adding a new service does not need to write any frontend code. Once the ACL entry and service method are in place, a LETC developer can immediately call it by referencing module.method in a widget's service property.
 
-→ [Widget Concept](widget-concept.md) for how widgets are built
+→ [Widget Concept](05-widget-concept.md) for how widgets are built
 
-→ [Create Widget](../product-guides/creating-widget.md) for a step-by-step guide
+→ [Create Widget](../product-guides/01-creating-widget.md) for a step-by-step guide
 

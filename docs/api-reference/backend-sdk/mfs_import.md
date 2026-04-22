@@ -104,6 +104,6 @@ https://hostname/-/svc/mfs_import.import_file
 
 ## Related Documentation
 
-- [ACL System](../../technology/acl-system.md) - Permission model
+- [ACL System](../../technology/02-acl-system.md) - Permission model
 - Service Routing - URL patterns
 - Error Handling - Error codes
