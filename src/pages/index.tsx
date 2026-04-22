@@ -34,7 +34,7 @@ export default function Home(): ReactNode {
   return (
     <Layout
       title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      description="Drumee is a self-hosted, OS-like platform that turns a file system into a collaborative workspace - with full data sovereignty built in at the infrastructure level.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
