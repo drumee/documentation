@@ -74,9 +74,9 @@ const config: Config = {
         {
           title: 'Documentation',
           items: [
-            { label: 'Introduction', to: '/category/introduction' },
-            { label: 'Technology', to: '/category/technology' },
-            { label: 'Getting Started', to: '/category/getting-started' },
+            { label: 'Introduction', to: '/introduction' },
+            { label: 'Technology', to: '/technology' },
+            { label: 'Getting Started', to: '/getting-started' },
           ],
         },
         {
