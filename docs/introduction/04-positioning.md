@@ -1,7 +1,7 @@
 ---
-id: positioning
+id: 04-positioning
 title: Positioning
-slug: /introduction/positioning
+slug: /introduction/04-positioning
 ---
 
 # Positioning

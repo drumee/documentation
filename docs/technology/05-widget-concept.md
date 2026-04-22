@@ -1,7 +1,7 @@
 ---
-id: widget-concept
+id: 05-widget-concept
 title: Widget Concept
-slug: /technology/widget-concept
+slug: /technology/05-widget-concept
 ---
 
 # Widget Concept

@@ -1,7 +1,7 @@
 ---
-id: permission-management
+id: 03-permission-management
 title: Permission Management
-slug: /product-guides/permission-management
+slug: /product-guides/03-permission-management
 ---
 
 # Permission Management

@@ -1,7 +1,7 @@
 ---
-id: our-history
+id: 06-our-history
 title: Our Story
-slug: /introduction/our-history
+slug: /introduction/06-our-history
 ---
 
 # Our Story

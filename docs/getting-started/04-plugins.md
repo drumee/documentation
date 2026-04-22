@@ -1,7 +1,7 @@
 ---
-id: plugins
+id: 04-plugins
 title: Plugins
-slug: /getting-started/plugins
+slug: /getting-started/04-plugins
 sidebar_position: 3
 description: Extend Drumee with your own backend services without modifying the core
 ---

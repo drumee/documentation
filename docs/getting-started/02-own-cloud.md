@@ -1,7 +1,7 @@
 ---
-id: own-cloud
+id: 02-own-cloud
 title: Own Cloud
-slug: /getting-started/own-cloud
+slug: /getting-started/02-own-cloud
 sidebar_position: 1
 description: Deploy and manage your own Drumee instance on Docker or bare metal Linux
 ---

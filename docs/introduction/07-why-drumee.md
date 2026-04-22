@@ -1,7 +1,7 @@
 ---
-id: why-drumee
+id: 07-why-drumee
 title: Why Drumee?
-slug: /introduction/why-drumee
+slug: /introduction/07-why-drumee
 ---
 
 # Why Drumee?

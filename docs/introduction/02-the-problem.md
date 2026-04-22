@@ -1,7 +1,7 @@
 ---
-id: the-problem
+id: 02-the-problem
 title: The Problem
-slug: /introduction/the-problem
+slug: /introduction/02-the-problem
 ---
 
 # The Problem

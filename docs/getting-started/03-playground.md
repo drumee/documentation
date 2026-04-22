@@ -1,7 +1,7 @@
 ---
-id: playground
+id: 03-playground
 title: Playground
-slug: /getting-started/playground
+slug: /getting-started/03-playground
 sidebar_position: 2
 description: Try Drumee's service API without installing anything
 ---

@@ -1,7 +1,7 @@
 ---
-id: glossary
+id: 01-glossary
 title: Glossary
-slug: /resources/glossary
+slug: /resources/01-glossary
 sidebar_position: 1
 description: Definitions for terms used throughout the Drumee backend documentation
 ---

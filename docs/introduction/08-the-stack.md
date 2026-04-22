@@ -1,7 +1,7 @@
 ---
-id: the-stack
+id: 08-the-stack
 title: The Drumee Stack
-slug: /introduction/the-stack
+slug: /introduction/08-the-stack
 ---
 
 # The Drumee Stack

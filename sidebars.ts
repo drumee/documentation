@@ -36,7 +36,7 @@ const sidebars: SidebarsConfig = {
       },
       items: [
         "technology/01-overview",
-        "technology/02acl-system",
+        "technology/02-acl-system",
         "technology/03-mfs-architecture",
         "technology/04-letc-engine",
         "technology/05-widget-concept",

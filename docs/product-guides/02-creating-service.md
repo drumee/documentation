@@ -1,7 +1,7 @@
 ---
-id: creating-service
+id: 02-creating-service
 title: Creating a Service
-slug: /product-guides/creating-service
+slug: /product-guides/02-creating-service
 ---
 
 # Developer Onboarding Guide

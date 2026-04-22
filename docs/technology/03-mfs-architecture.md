@@ -1,7 +1,7 @@
 ---
-id: mfs-architecture
+id: 03-mfs-architecture
 title: Meta File System (MFS)
-slug: /technology/mfs-architecture
+slug: /technology/03-mfs-architecture
 ---
 
 # Meta File System (MFS)

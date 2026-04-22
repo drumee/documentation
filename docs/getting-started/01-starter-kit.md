@@ -1,7 +1,7 @@
 ---
-id: starter-kit
+id: 01-starter-kit
 title: Starter Kit
-slug: /getting-started/starter-kit
+slug: /getting-started/01-starter-kit
 ---
 
 # Starter Kit

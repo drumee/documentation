@@ -1,7 +1,7 @@
 ---
-id: creating-widget
+id: 01-creating-widget
 title: Creating a Widget
-slug: /product-guides/creating-widget
+slug: /product-guides/01-creating-widget
 ---
 
 # Drumee Frontend SDK — General Principles
