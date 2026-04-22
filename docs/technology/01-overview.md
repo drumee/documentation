@@ -58,19 +58,19 @@ Every request passes through all three layers in sequence. There is no shortcut 
 
 The identity and access control layer. Every request is tagged with a user identity. Permissions are enforced at the microservice level — before any data operation occurs.
 
-→ [ACL System](acl-system.md)
+→ [ACL System](02-acl-system.md)
 
 ### 2\. MFS — Media File System
 
 The storage layer. A Linux-inspired filesystem with isolated volumes, POSIX-style permission scoping, and atomic file operations. The security properties of the system are architectural, not configurational.
 
-→ [MFS Architecture](mfs-architecture.md)
+→ [MFS Architecture](03-mfs-architecture.md)
 
 ### 3\. LETC Engine
 
 The rendering layer. UI is defined as JSON trees, not server-generated HTML. This decouples interface definition from data delivery and enables a clean, conflict-free widget system.
 
-→ [LETC Engine](letc-engine.md)
+→ [LETC Engine](04-letc-engine.md)
 
 ### 4\. Unified SDK
 
