@@ -1,6 +1,8 @@
 ---
-sidebar_position: 3
+id: troubleshooting
 title: Troubleshooting
+slug: /resources/troubleshooting
+sidebar_position: 3
 description: Solutions to common issues encountered when working with the Drumee backend
 ---
 

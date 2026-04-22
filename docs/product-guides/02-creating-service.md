@@ -1,3 +1,9 @@
+---
+id: creating-service
+title: Creating a Service
+slug: /product-guides/creating-service
+---
+
 # Developer Onboarding Guide
 
 This guide covers the core patterns you need to be productive on the Drumee backend quickly.

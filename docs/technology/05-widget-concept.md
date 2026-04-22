@@ -1,3 +1,9 @@
+---
+id: widget-concept
+title: Widget Concept
+slug: /technology/widget-concept
+---
+
 # Widget Concept
 
 In Drumee, **everything is a widget**. Every screen, panel, list, button, and form element is a widget — identified by a kind string, built as a Backbone.Marionette class, and composed into JSON trees that the LETC engine renders.

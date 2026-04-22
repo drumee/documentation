@@ -1,3 +1,9 @@
+---
+id: letc-engine
+title: LETC Engine
+slug: /technology/letc-engine
+---
+
 # LETC Engine
 
 LETC — **Limitlessly Extensible Tree Components** — is Drumee's declarative UI rendering engine. Instead of generating HTML on the server or shipping a compiled JavaScript bundle, Drumee describes user interfaces as JSON trees that the client renders locally using a registry of widget components.

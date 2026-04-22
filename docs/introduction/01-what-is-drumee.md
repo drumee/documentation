@@ -1,7 +1,7 @@
 ---
 id: what-is-drumee
 title: What is Drumee?
-slug: /
+slug: /introduction/what-is-drumee
 ---
 
 Drumee is a sovereign **data infrastructure**.

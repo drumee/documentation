@@ -1,6 +1,8 @@
 ---
-sidebar_position: 2
+id: faq
 title: FAQ
+slug: /resources/faq
+sidebar_position: 2
 description: Frequently asked questions about Drumee backend development
 ---
 

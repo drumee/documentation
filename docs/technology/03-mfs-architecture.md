@@ -1,3 +1,9 @@
+---
+id: mfs-architecture
+title: Meta File System (MFS)
+slug: /technology/mfs-architecture
+---
+
 # Meta File System (MFS)
 
 MFS — Meta File System — is Drumee's internal file management layer. Unlike standard web applications that expose the host file system directly to application logic, MFS adds a full abstraction layer that makes file handling safer, more flexible, and permission-aware at every level.

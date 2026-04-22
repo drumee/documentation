@@ -1,3 +1,9 @@
+---
+id: creating-widget
+title: Creating a Widget
+slug: /product-guides/creating-widget
+---
+
 # Drumee Frontend SDK — General Principles
 
 > Source: https://drumee.github.io/api-reference/frontend-sdk/

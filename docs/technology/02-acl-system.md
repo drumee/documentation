@@ -1,3 +1,9 @@
+---
+id: acl-system
+title: ACL System
+slug: /technology/acl-system
+---
+
 # ACL System
 
 Drumee's ACL system is a **bitwise, Linux-inspired permission model** that controls access to every backend service. Each service is declared in a JSON configuration file. The server reads this configuration on every request and either dispatches to the service method or returns a 403 — before any service code runs.

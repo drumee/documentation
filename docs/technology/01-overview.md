@@ -1,3 +1,9 @@
+---
+id: overview
+title: Technology Overview
+slug: /technology/overview
+---
+
 # Technology Overview
 
 Drumee is built as an **OS-like full-stack framework** — not a web app that happens to run on a server, but a unified system that provides every layer of a web application in a single, coherent architecture.
