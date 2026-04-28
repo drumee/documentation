@@ -183,6 +183,6 @@ No route registration, no middleware wiring — the ACL file is the complete dec
 ## Related Topics
 
 - [MFS Architecture](mfs) — How file permissions integrate with the ACL system
-- [Backend SDK Reference](../api-reference/backend-sdk/index) — Full API reference for all modules
+- [Backend SDK Reference](../api-reference/backend-sdk/index.md) — Full API reference for all modules
 - [Creating a Service](../guides/creating-service) — Step-by-step guide to adding a new service
 - [Permission Management](../guides/permission-management) — Managing user privileges

@@ -20,7 +20,7 @@ Skeletons.EntryBox(props, style?)
 
 ## Common Props
 
-Inherits all props from [`Skeletons.Entry`](./skeletons-entry) plus:
+Inherits all props from [`Skeletons.Entry`](./entry.md) plus:
 
 | Prop           | Type    | Description                                                    |
 | -------------- | ------- | -------------------------------------------------------------- |

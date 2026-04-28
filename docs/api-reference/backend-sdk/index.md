@@ -84,7 +84,7 @@ Complete API documentation for all Drumee backend services.
 ## Quick Links
 
 - [Getting Started](../../getting-started/01-starter-kit.md)
-- [Core Concepts](../../concepts/overview.md)
+- [Core Concepts](../../technology/01-overview.md)
 - [Guides](../../guides/)
 
 ## Documentation Format
@@ -98,6 +98,6 @@ Each module page includes:
 
 ## Need Help?
 
-- Check [Troubleshooting Guide](../../resources/03-troubleshooting.md)
+- Check [Troubleshooting Guide](/resources/03-troubleshooting)
 - Review Common Patterns
 - See Example Implementations
