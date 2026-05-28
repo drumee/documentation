@@ -21,13 +21,6 @@ const config: Config = {
   organizationName: 'drumee', // Usually your GitHub org/user name.
   projectName: 'documentation', // Usually your repo name.
 
-  //onBrokenMarkdownLinks: 'warn',
-  markdown: {
-    hooks: {
-      onBrokenMarkdownLinks: 'warn',
-      onBrokenLinks: 'warn',
-    },
-  },
   onBrokenLinks: 'warn',
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -110,6 +103,9 @@ const config: Config = {
 
   markdown: {
     mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
   },
 
   themes: ['@docusaurus/theme-mermaid'],
