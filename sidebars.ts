@@ -40,6 +40,7 @@ const sidebars: SidebarsConfig = {
         "technology/03-mfs-architecture",
         "technology/04-letc-engine",
         "technology/05-widget-concept",
+        "technology/06-request-pipeline",
         {
           type: "category",
           label: "SDK Reference",

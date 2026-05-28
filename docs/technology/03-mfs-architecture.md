@@ -99,6 +99,40 @@ MFS operations are performed **exclusively through stored procedures**. Services
 | mfs_access_node | Check whether a user can access a given node |
 | mfs_get_by | Fetch a node record by various criteria |
 
+## Special Node IDs
+
+A small set of negative integer node IDs are reserved by the platform for hub-level resources:
+
+| ID | Resource |
+| :---- | :---- |
+| `-1` | Hub logo |
+| `-2` | User avatar |
+| `-3` | Hub wallpaper |
+
+These IDs are stable across all hubs and can be used directly in service calls to retrieve or update the corresponding media assets.
+
+## Media Processing
+
+When a file is uploaded, Drumee's **Generator** module converts the original into derived formats on demand. Generated files are cached alongside the original under the node's physical path; subsequent requests are served directly by Nginx via `X-Accel-Redirect` without re-entering Node.js.
+
+| Source type | Tools used | Generated formats |
+| :---- | :---- | :---- |
+| Image | GraphicsMagick | vignette, preview, slide, card, thumb, webp, theme |
+| Video | FFmpeg | stream (H.264), card, thumb, vignette, HLS segments |
+| Audio | FFmpeg | stream (MP3), vignette, thumb, browse, slide |
+| Document | LibreOffice + GraphicsMagick | PDF, vignette, thumb, card, slide, search index |
+
+Long-running conversions (document indexing, email notifications) are offloaded to detached child processes so the HTTP response is not delayed. Results are pushed back to the client through WebSocket.
+
+**Required host tools** for media processing:
+
+| Tool | Purpose |
+| :---- | :---- |
+| GraphicsMagick (`gm`) | Image resizing and conversion |
+| FFmpeg / FFprobe | Video and audio conversion |
+| LibreOffice (`soffice`) | Document-to-PDF conversion |
+| `pdfinfo` | PDF metadata extraction |
+
 ## Trash System
 
 Deleted nodes are not immediately removed. They are moved to a trash_media table with a trashed_time timestamp. This allows users to restore files within a configurable expiry window. Once the expiry period passes, the expiry worker permanently deletes the physical files and purges the database record.

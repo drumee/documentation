@@ -176,6 +176,8 @@ async my_action() {
 }
 ```
 
+→ [Checkout request life cycle](06-request-pipeline.md)
+
 ## Security Properties
 
 * **No implicit access.** A method with no ACL entry is unreachable from the network, regardless of whether it exists in the service file.  

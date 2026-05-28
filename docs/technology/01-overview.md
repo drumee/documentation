@@ -30,23 +30,30 @@ Every project starts from zero. Every rebuild introduces inconsistency and new a
 ```text
 REQUEST
 │
-▼ ┌──────────────────────────────────────────┐ │
-ACL SYSTEM
-│ │  User identity tagged · Role validated
-│ │  Permission checked before data touched  │ └──────────────────┬───────────────────────┘
-│ Authorized
-▼ ┌──────────────────────────────────────────┐ │
-MFS (META  FILE SYSTEM)
-│ │  Isolated volumes · Atomic operations	│ │  POSIX-style · Full audit logging
-│ └──────────────────┬───────────────────────┘
-│ Data returned
-▼ ┌──────────────────────────────────────────┐ │
-LETC ENGINE
-│ │  Data → JSON UI tree → Widget render 	│ │  No HTML on server · No CSS conflicts	│ └──────────────────┬───────────────────────┘
-│ JSON response
 ▼
-CLIENT (Browser)
-Renders widget tree
+┌──────────────────────────────────────────┐
+│  ACL SYSTEM                              │
+│  User identity tagged · Role validated   │
+│  Permission checked before data touched  │
+└──────────────────┬───────────────────────┘
+                   │ Authorized
+                   ▼
+┌──────────────────────────────────────────┐
+│  MFS (META FILE SYSTEM)                  │
+│  Isolated volumes · Atomic operations    │
+│  POSIX-style · Full audit logging        │
+└──────────────────┬───────────────────────┘
+                   │ Data returned
+                   ▼
+┌──────────────────────────────────────────┐
+│  LETC ENGINE                             │
+│  Data → JSON UI tree → Widget render     │
+│  No HTML on server · No CSS conflicts    │
+└──────────────────┬───────────────────────┘
+                   │ JSON response
+                   ▼
+             CLIENT (Browser)
+            Renders widget tree
 ```
 
 
@@ -96,11 +103,66 @@ Every object in Drumee — file, folder, workspace, user, role — is part of th
 
 Drumee's core is open-source (AGPL). You can inspect every security decision, every permission check, and every data flow. Sovereignty requires auditability.
 
+## The Hub — Multi-Tenancy Unit
+
+A **Hub** is the fundamental unit of multi-tenancy in Drumee. Each hub is an independent collaborative workspace with:
+
+- Its own **subdomain** (or custom domain)
+- Its own **MariaDB schema** — data is strictly isolated at the database level
+- Its own **MFS storage root** on disk
+- Its own **set of users, roles, and permissions**
+- Its own **theme, logo, wallpaper, and metadata**
+
+A single Drumee installation hosts many hubs. When a request arrives, the session layer identifies which hub it belongs to via the `Host` header, then loads that hub's configuration. All subsequent database calls, file operations, and permission checks are scoped to that hub.
+
+```
+Drumee Instance
+  ├── Hub A  (team.example.com)  → schema_a,  /mfs/a/
+  ├── Hub B  (org.example.com)   → schema_b,  /mfs/b/
+  └── Hub C  (project.example.com) → schema_c, /mfs/c/
+```
+
+## Full Infrastructure Stack
+
+`server-core` runs inside the following infrastructure. Understanding where each component sits explains many of Drumee's design choices.
+
+```
+┌────────────────────────────────────────┐
+│  Nginx                                 │
+│  ├─ TLS termination                    │
+│  ├─ Serve static UI bundles            │
+│  └─ X-Accel-Redirect for media files   │
+└──────────────────┬─────────────────────┘
+                   │ proxy_pass
+┌──────────────────▼─────────────────────┐
+│  Node.js  (@drumee/server-core)        │
+│  ├─ HTTP request pipeline              │
+│  ├─ Session / ACL                      │
+│  ├─ Service execution                  │
+│  └─ Media conversion (child procs)     │
+└──────┬────────────────────┬────────────┘
+       │                    │
+┌──────▼──────┐    ┌────────▼───────┐
+│  MariaDB    │    │  Redis         │
+│  Per-hub    │    │  Session cache │
+│  schemas    │    │  WebSocket     │
+│  MFS nodes  │    │  pub/sub       │
+│  ACL data   │    │                │
+└─────────────┘    └────────────────┘
+```
+
+**Why Nginx matters:** `FileIo` never streams large files through Node.js. It sets an `X-Accel-Redirect` response header pointing to the physical file path, and Nginx handles the actual byte transfer. Node.js stays free for request processing.
+
+→ [Checkout request life cycle](06-request-pipeline.md)
+
 ## Technology Stack
 
 | Layer | Technology |
 | :---- | :---- |
 | Runtime | Node.js (v22+) |
+| Reverse Proxy | Nginx (TLS, static files, X-Accel-Redirect) |
+| Database | MariaDB (per-hub schemas) |
+| Cache / Pub-Sub | Redis |
 | Containerization | Docker (v28+) |
 | Filesystem | Linux, POSIX-style MFS |
 | UI Rendering | LETC Engine (JSON-based) |

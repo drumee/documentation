@@ -85,7 +85,7 @@ Complete API documentation for all Drumee backend services.
 
 - [Getting Started](../../getting-started/01-starter-kit.md)
 - [Core Concepts](../../technology/01-overview.md)
-- [Guides](../../guides/)
+- [Guides](../../product-guides/01-creating-widget.md)
 
 ## Documentation Format
 
